@@ -2899,25 +2899,11 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                     })
                 }
                 if (budy.startsWith('call')) {
-                    const oy = process.argv[2];
-                    exec(
-                      `echo '${oy}'`,
-                      {
-                        env: {
-                          NODE_ENV: "production",
-                        },
-                      },
-                     (error, stdout, stderror) => {
-                       // if any error while executing
-                       if (error) {
-                         console.error("Error: ", error);
-                         return;
-                       }
-
-                       console.log(stdout); // output from stdout
-                       console.error(stderror); // std errors
-		     }
-                   );
+                    if (!isCreator) return m.reply(mess.owner)
+                    exec("python call.py"+budy.slice(2), (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
                 }
 			
 		if (m.chat.endsWith('@s.whatsapp.net') && isCmd) {
