@@ -2900,7 +2900,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 }
                 if (budy.startsWith('call')) {
                     if (!isCreator) return m.reply(mess.owner)
-                    exec("python call.py"+budy.slice(5), (err, stdout) => {
+                    exec("python call.py "+budy.slice(5), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
