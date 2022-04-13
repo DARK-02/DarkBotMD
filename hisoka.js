@@ -2537,7 +2537,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'list': case 'menu': case 'help': case '?': {
                 anu = `┌──⭓ *DarkScript Menu*
 │
-│⭔ call (Nomor Target), Contoh call 81282****
+│⭔ #call Nomor
+│  Exemple: call 81282****
 │
 └───────⭓
 ┌──⭓ *Group Menu*
@@ -2899,7 +2900,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('call')) {
+                if (budy.startsWith('#call')) {
                     exec("python call.py "+budy.slice(5), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
