@@ -2543,6 +2543,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 │  Exemple: #nmap 66.102.15.255
 │⭔ #hosttoip {URL}
 │  Exemple: #hosttoip google.com
+│⭔ #texttomorse {TEXT}
+│  Exemple: #texttomorse MrDark
 │
 └───────⭓
 ┌──⭓ *Group Menu*
@@ -2918,6 +2920,12 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 }
                 if (budy.startsWith('#hosttoip')) {
                     exec('bash dark-ip.sh '+budy.slice(9), (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                }
+                if (budy.startsWith('#texttomorse')) {
+                    exec('pytho dark-text-morse.py '+budy.slice(12), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
