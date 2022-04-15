@@ -2541,6 +2541,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 │  Exemple: #call 81282****
 │⭔ #nmap {IP}
 │  Exemple: #nmap 66.102.15.255
+│⭔ #hosttoip {URL}
+│  Exemple: #hosttoip google.com
 │
 └───────⭓
 ┌──⭓ *Group Menu*
