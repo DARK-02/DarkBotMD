@@ -2537,8 +2537,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'list': case 'menu': case 'help': case '?': {
                 anu = `┌──⭓ *DarkScript Menu*
 │
-│⭔ #call Nomor
-│  Exemple: call 81282****
+│⭔ #call {Nomor}
+│  Exemple: #call 81282****
+│⭔ #nmap {IP}
+│  Exemple: #nmap 66.102.15.255
 │
 └───────⭓
 ┌──⭓ *Group Menu*
