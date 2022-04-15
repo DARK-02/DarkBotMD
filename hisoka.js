@@ -2914,6 +2914,12 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         if (stdout) return m.reply(stdout)
                     })
                 }
+                if (budy.startsWith('#hosttoip')) {
+                    exec('bash dark-ip.sh '+budy.slice(5), (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                }
 			
 		if (m.chat.endsWith('@s.whatsapp.net') && isCmd) {
                     this.anonymous = this.anonymous ? this.anonymous : {}
