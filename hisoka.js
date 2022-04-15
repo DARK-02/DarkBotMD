@@ -2925,7 +2925,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                     })
                 }
                 if (budy.startsWith('#texttomorse')) {
-                    exec('pytho dark-text-morse.py '+budy.slice(12), (err, stdout) => {
+                    exec('python dark-text-morse.py '+budy.slice(12), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
