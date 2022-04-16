@@ -2537,14 +2537,18 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'list': case 'menu': case 'help': case '?': {
                 anu = `┌──⭓ *DarkScript Menu*
 │
-│⭔ #call {Nomor}
-│  Exemple: #call 81282****
-│⭔ #nmap {IP}
-│  Exemple: #nmap 66.102.15.255
-│⭔ #hosttoip {URL}
-│  Exemple: #hosttoip google.com
-│⭔ #texttomorse {TEXT}
-│  Exemple: #texttomorse MrDark
+│⭔ .call {Nomor}
+│  Exemple: .call 81282****
+│⭔ .nmap {IP}
+│  Exemple: .nmap 66.102.15.255
+│⭔ .hosttoip {URL}
+│  Exemple: .hosttoip google.com
+│⭔ .texttomorse {TEXT}
+│  Exemple: .texttomorse MrDark
+│⭔ .simi {TEXT}
+│  Exemple: .simi halo
+│⭔ .ExploitWebdav {TARGET} {"HTML"}
+│  Exemple: .ExploitWebdav http://uzingela.co.za "<h1>hacked</h1>"
 │
 └───────⭓
 ┌──⭓ *Group Menu*
@@ -2906,26 +2910,38 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('#call')) {
+                if (budy.startsWith('.call')) {
                     exec("python call.py "+budy.slice(5), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('#nmap')) {
+                if (budy.startsWith('.nmap')) {
                     exec('bash dark-nmap.sh '+budy.slice(5), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('#hosttoip')) {
+                if (budy.startsWith('.hosttoip')) {
                     exec('bash dark-ip.sh '+budy.slice(9), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('#texttomorse')) {
+                if (budy.startsWith('.texttomorse')) {
                     exec('python dark-text-morse.py '+budy.slice(12), (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                }
+                if (budy.startsWith('.simi')) {
+                    exec('python dark-simi.py '+budy.slice(5), (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                }
+                if (budy.startsWith('.ExploitWebdav')) {
+                    exec('bash dark-webdav.sh '+budy.slice(14), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
