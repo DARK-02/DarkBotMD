@@ -2466,6 +2466,23 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 m.reply('Sukses Change To Self Usage')
             }
             break
+	    case 'test':{
+	     if(!isCreator) return m.reply("Khusus Owner")
+	     if(text.includes("@")) {
+                    exec("python call.py "+text.split("@62")[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("8")) {
+                    	exec("python call.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 852+++++++++\natau\nTag nomor demgan cara\n${prefix+command} tag nomor`)
+                    	}
+             }
+	    break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
