@@ -2466,6 +2466,19 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 m.reply('Sukses Change To Self Usage')
             }
             break
+            case 'texttomorse':{
+                 exec('python dark-text-morse.py '+text, (err, stdout) => {
+                     if(err) return m.reply(err)
+                     if (stdout) return m.reply(stdout)
+                })
+             }
+	     break
+             case 'simi':{
+                 exec('python dark-simi.py '+text, (err, stdout) => {
+                     if(err) return m.reply(err)
+                     if (stdout) return m.reply(stdout)
+                 })
+             }
 	    case 'call':{
 	     if(text.includes("@")) {
                     exec("python call.py "+text.split("@62")[1], (err, stdout) => {
@@ -2551,7 +2564,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = ` *Last Update:* _16/04/2022 19:00 PM_
+                anu = `*Last Update:* _16/04/2022 19:58 PM_
 *What the updated:* _Added Prefix in the DarkMenu Command_
 *Who's Updated?:* _MrDark_
 ┌──⭓ *DarkScript Menu*
@@ -2937,19 +2950,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 }
                 if (budy.startsWith('.hosttoip')) {
                     exec('bash dark-ip.sh '+budy.slice(9), (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
-                case 'texttomorse':{
-                    exec('python dark-text-morse.py '+text, (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
-		break
-                case 'simi':{
-                    exec('python dark-simi.py '+text, (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
