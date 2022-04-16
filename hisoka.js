@@ -2479,6 +2479,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                  if (stdout) return m.reply(stdout)
                  })
              }
+	     break
 	    case 'call':{
 	     if(text.includes("@")) {
                     exec("python call.py "+text.split("@62")[1], (err, stdout) => {
