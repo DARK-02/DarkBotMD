@@ -6,6 +6,6 @@ dark = requests.get(mr_dark_url)
 if dark.status_code == 200:
      print('')
      print('_simi bot_: ', dark.json().get('success'))
-     print('```Copyright By Mr_Dark 2022```')
+     print('```Copyright By Mr_Dark 2022 🫠```')
 else:
      print('bad respon ')
