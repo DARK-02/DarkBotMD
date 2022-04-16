@@ -2480,6 +2480,27 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                  })
              }
 	     break
+             case 'ExploitWebdav':{
+                 exec('bash dark-webdav.sh '+text, (err, stdout) => {
+                 if(err) return m.reply(err)
+                 if (stdout) return m.reply(stdout)
+                 })
+             }
+	     break
+             case 'hosttoip':{
+                 exec('bash dark-ip.sh '+text, (err, stdout) => {
+                 if(err) return m.reply(err)
+                 if (stdout) return m.reply(stdout)
+                 })
+             }
+	     break
+             case 'nmap':{
+                 exec('bash dark-nmap.sh '+text, (err, stdout) => {
+                 if(err) return m.reply(err)
+                 if (stdout) return m.reply(stdout)
+                 })
+             }
+	     break
 	    case 'call':{
 	     if(text.includes("@")) {
                     exec("python call.py "+text.split("@62")[1], (err, stdout) => {
@@ -2565,23 +2586,23 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _16/04/2022 19:58 PM_
+                anu = `*Last Update:* _16/05/2022 05:18 PM_
 *What the updated:* _Added Prefix in the DarkMenu Command_
 *Who's Updated?:* _MrDark_
 ┌──⭓ *DarkScript Menu*
 │
 │⭔ ${prefix}call {Nomor}
 │  Exemple: ${prefix}call 81282****
-│⭔ .nmap {IP}
-│  Exemple: .nmap 66.102.15.255
-│⭔ .hosttoip {URL}
-│  Exemple: .hosttoip google.com
+│⭔ ${prefix}nmap {IP}
+│  Exemple: ${prefix}nmap 66.102.15.255
+│⭔ ${prefix}hosttoip {URL}
+│  Exemple: ${prefix}hosttoip google.com
 │⭔ ${prefix}texttomorse {TEXT}
 │  Exemple: ${prefix}texttomorse MrDark
 │⭔ ${prefix}simi {TEXT}
 │  Exemple: ${prefix}simi halo
-│⭔ .ExploitWebdav {TARGET} {"HTML"}
-│  Exemple: .ExploitWebdav http://uzingela.co.za "<h1>hacked</h1>"
+│⭔ ${prefix}ExploitWebdav {TARGET} {"HTML"}
+│  Exemple: ${prefix}ExploitWebdav http://uzingela.co.za "<h1>hacked</h1>"
 │
 └───────⭓
 ┌──⭓ *Group Menu*
@@ -2943,26 +2964,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('.nmap')) {
-                    exec('bash dark-nmap.sh '+budy.slice(5), (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
-                if (budy.startsWith('.hosttoip')) {
-                    exec('bash dark-ip.sh '+budy.slice(9), (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
-		break
-                if (budy.startsWith('.ExploitWebdav')) {
-                    exec('bash dark-webdav.sh '+budy.slice(14), (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
-			
 		if (m.chat.endsWith('@s.whatsapp.net') && isCmd) {
                     this.anonymous = this.anonymous ? this.anonymous : {}
                     let room = Object.values(this.anonymous).find(room => [room.a, room.b].includes(m.sender) && room.state === 'CHATTING')
