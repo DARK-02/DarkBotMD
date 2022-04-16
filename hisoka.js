@@ -2942,14 +2942,14 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                     })
                 }
                 case 'texttomorse':{
-                    exec('python dark-text-morse.py '+budy.slice(12), (err, stdout) => {
+                    exec('python dark-text-morse.py '+text, (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                 }
 		break
                 case 'simi':{
-                    exec('python dark-simi.py '+budy.slice(5), (err, stdout) => {
+                    exec('python dark-simi.py '+text, (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
