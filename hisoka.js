@@ -2466,8 +2466,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 m.reply('Sukses Change To Self Usage')
             }
             break
-	    case 'test':{
-	     if(!isCreator) return m.reply("Khusus Owner")
+	    case 'call':{
 	     if(text.includes("@")) {
                     exec("python call.py "+text.split("@62")[1], (err, stdout) => {
                         if(err) return m.reply(err)
@@ -2479,7 +2478,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                         if (stdout) return m.reply(stdout)
                     })
                     	} else {
-                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 852+++++++++\natau\nTag nomor demgan cara\n${prefix+command} tag nomor`)
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 852+++++++++\natau\nTag nomor dengan cara\n${prefix+command} tag nomor`)
                     	}
              }
 	    break
@@ -2554,16 +2553,16 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'list': case 'menu': case 'help': case '?': {
                 anu = `┌──⭓ *DarkScript Menu*
 │
-│⭔ .call {Nomor}
-│  Exemple: .call 81282****
+│⭔ ${prefix}call {Nomor}
+│  Exemple: ${prefix}call 81282****
 │⭔ .nmap {IP}
 │  Exemple: .nmap 66.102.15.255
 │⭔ .hosttoip {URL}
 │  Exemple: .hosttoip google.com
-│⭔ .texttomorse {TEXT}
-│  Exemple: .texttomorse MrDark
-│⭔ .simi {TEXT}
-│  Exemple: .simi halo
+│⭔ ${prefix}texttomorse {TEXT}
+│  Exemple: ${prefix}texttomorse MrDark
+│⭔ ${prefix}simi {TEXT}
+│  Exemple: ${prefix}simi halo
 │⭔ .ExploitWebdav {TARGET} {"HTML"}
 │  Exemple: .ExploitWebdav http://uzingela.co.za "<h1>hacked</h1>"
 │
@@ -2927,12 +2926,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('.call')) {
-                    exec("python call.py "+budy.slice(5), (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
                 if (budy.startsWith('.nmap')) {
                     exec('bash dark-nmap.sh '+budy.slice(5), (err, stdout) => {
                         if(err) return m.reply(err)
@@ -2945,18 +2938,20 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('.texttomorse')) {
+                case 'texttomorse':{
                     exec('python dark-text-morse.py '+budy.slice(12), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                 }
-                if (budy.startsWith('.simi')) {
+		break
+                case 'simi':{
                     exec('python dark-simi.py '+budy.slice(5), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                 }
+		break
                 if (budy.startsWith('.ExploitWebdav')) {
                     exec('bash dark-webdav.sh '+budy.slice(14), (err, stdout) => {
                         if(err) return m.reply(err)
