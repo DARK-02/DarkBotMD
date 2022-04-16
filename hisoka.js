@@ -2551,7 +2551,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `┌──⭓ *DarkScript Menu*
+                anu = ` *Last Update:* _16/04/2022 19:00 PM_
+*What the updated:* _Added Prefix in the DarkMenu Command_
+*Who's Updated?:* _MrDark_
+┌──⭓ *DarkScript Menu*
 │
 │⭔ ${prefix}call {Nomor}
 │  Exemple: ${prefix}call 81282****
