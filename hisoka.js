@@ -2468,15 +2468,15 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
             break
             case 'texttomorse':{
                  exec('python dark-text-morse.py '+text, (err, stdout) => {
-                     if(err) return m.reply(err)
-                     if (stdout) return m.reply(stdout)
+                 if(err) return m.reply(err)
+                 if (stdout) return m.reply(stdout)
                 })
              }
 	     break
              case 'simi':{
                  exec('python dark-simi.py '+text, (err, stdout) => {
-                     if(err) return m.reply(err)
-                     if (stdout) return m.reply(stdout)
+                 if(err) return m.reply(err)
+                 if (stdout) return m.reply(stdout)
                  })
              }
 	    case 'call':{
