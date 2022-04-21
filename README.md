@@ -5,7 +5,7 @@
  
 </details>
  
-Script WhatsApp Bot Multi Device
+Script WhatsApp Bot Multi Device,
 Base By DikaArdnt
 
 ## NOTE
