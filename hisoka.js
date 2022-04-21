@@ -2589,18 +2589,12 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 *Who's Updated?:* _MrDark_
 ┌──⭓ *DarkScript Menu*
 │
-│⭔ ${prefix}call {Nomor}
-│  Exemple: ${prefix}call 81282****
-│⭔ ${prefix}nmap {IP}
-│  Exemple: ${prefix}nmap 66.102.15.255
-│⭔ ${prefix}hosttoip {URL}
-│  Exemple: ${prefix}hosttoip google.com
-│⭔ ${prefix}texttomorse {TEXT}
-│  Exemple: ${prefix}texttomorse MrDark
-│⭔ ${prefix}simi {TEXT}
-│  Exemple: ${prefix}simi halo
-│⭔ ${prefix}ExploitWebdav {TARGET} {"HTML"}
-│  Exemple: ${prefix}ExploitWebdav http://uzingela.co.za "<h1>hacked</h1>"
+│⭔ ${prefix}call [nomor]
+│⭔ ${prefix}nmap [IP]
+│⭔ ${prefix}hosttoip [url]
+│⭔ ${prefix}texttomorse [text]
+│⭔ ${prefix}simi [text]
+│⭔ ${prefix}ExploitWebdav [website] [html]
 │
 └───────⭓
 ┌──⭓ *Group Menu*
