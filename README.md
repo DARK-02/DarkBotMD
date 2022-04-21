@@ -25,8 +25,8 @@ $ apt update && apt upgrade
 $ apt install git -y
 $ apt install nodejs -y
 $ apt install ffmpeg -y
-$ git clone https://github.com/DARK-02/DarkBot
-$ cd DarkBot
+$ git clone https://github.com/DARK-02/DarkBotMD
+$ cd DarkBotMD
 $ npm install
 $ node .
 ```
