@@ -2514,6 +2514,21 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	m.reply(`Masukkan nomor contoh\n${prefix+command} 852+++++++++\natau\nTag nomor dengan cara\n${prefix+command} tag nomor`)
                     	}
              }
+	    case 'spamsms':{
+	     if(text.includes("@")) {
+                    exec("python mpl.py "+text.split("@62")[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("8")) {
+                    	exec("python mpl.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 852****\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
+                    	}
+             }
 	    break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
@@ -2590,307 +2605,277 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 ════════════════════════════════
     *DarkScript Menu*
 
-➣ ${prefix}call [nomor]
-➣ ${prefix}nmap [IP]
-➣ ${prefix}hosttoip [url]
-➣ ${prefix}texttomorse [text]
-➣ ${prefix}simi [text]
-➣ ${prefix}ExploitWebdav [website] [html]
+•➣ ${prefix}call [nomor]
+•➣ ${prefix}nmap [IP]
+•➣ ${prefix}hosttoip [url]
+•➣ ${prefix}texttomorse [text]
+•➣ ${prefix}simi [text]
+•➣ ${prefix}ExploitWebdav [website] [html]
 
 
     *Group Menu*
 
-➣ ${prefix}linkgroup
-➣ ${prefix}ephemeral [option]
-➣ ${prefix}setppgc [image]
-➣ ${prefix}setname [text]
-➣ ${prefix}setdesc [text]
-➣ ${prefix}group [option]
-➣ ${prefix}editinfo [option]
-➣ ${prefix}add @user
-➣ ${prefix}kick @user
-➣ ${prefix}hidetag [text]
-➣ ${prefix}tagall [text]
-➣ ${prefix}antilink [on/off]
-➣ ${prefix}mute [on/off]
-➣ ${prefix}promote @user
-➣ ${prefix}demote @user
-➣ ${prefix}vote [text]
-➣ ${prefix}devote
-➣ ${prefix}upvote
-➣ ${prefix}cekvote
-➣ ${prefix}hapusvote
+•➣ ${prefix}linkgroup
+•➣ ${prefix}ephemeral [option]
+•➣ ${prefix}setppgc [image]
+•➣ ${prefix}setname [text]
+•➣ ${prefix}setdesc [text]
+•➣ ${prefix}group [option]
+•➣ ${prefix}editinfo [option]
+•➣ ${prefix}add @user
+•➣ ${prefix}kick @user
+•➣ ${prefix}hidetag [text]
+•➣ ${prefix}tagall [text]
+•➣ ${prefix}antilink [on/off]
+•➣ ${prefix}mute [on/off]
+•➣ ${prefix}promote @user
+•➣ ${prefix}demote @user
+•➣ ${prefix}vote [text]
+•➣ ${prefix}devote
+•➣ ${prefix}upvote
+•➣ ${prefix}cekvote
+•➣ ${prefix}hapusvote
 
 
-┌──⭓ *Downloader Menu*
-│
-│⭔ ${prefix}tiktoknowm [url]
-│⭔ ${prefix}tiktokwm [url]
-│⭔ ${prefix}tiktokmp3 [url]
-│⭔ ${prefix}instagram [url]
-│⭔ ${prefix}twitter [url]
-│⭔ ${prefix}twittermp3 [url]
-│⭔ ${prefix}facebook [url]
-│⭔ ${prefix}pinterestdl [url]
-│⭔ ${prefix}ytmp3 [url]
-│⭔ ${prefix}ytmp4 [url]
-│⭔ ${prefix}getmusic [query]
-│⭔ ${prefix}getvideo [query]
-│⭔ ${prefix}umma [url]
-│⭔ ${prefix}joox [query]
-│⭔ ${prefix}soundcloud [url]
-│
-└───────⭓
+    *Downloader Menu*
+    
+•➣ ${prefix}tiktoknowm [url]
+•➣ ${prefix}tiktokwm [url]
+•➣ ${prefix}tiktokmp3 [url]
+•➣ ${prefix}instagram [url]
+•➣ ${prefix}twitter [url]
+•➣ ${prefix}twittermp3 [url]
+•➣ ${prefix}facebook [url]
+•➣ ${prefix}pinterestdl [url]
+•➣ ${prefix}ytmp3 [url]
+•➣ ${prefix}ytmp4 [url]
+•➣ ${prefix}getmusic [query]
+•➣ ${prefix}getvideo [query]
+•➣ ${prefix}umma [url]
+•➣ ${prefix}joox [query]
+•➣ ${prefix}soundcloud [url]
 
-┌──⭓ *Search Menu*
-│
-│⭔ ${prefix}play [query]
-│⭔ ${prefix}yts [query]
-│⭔ ${prefix}google [query]
-│⭔ ${prefix}gimage [query]
-│⭔ ${prefix}pinterest [query]
-│⭔ ${prefix}wallpaper [query]
-│⭔ ${prefix}wikimedia [query]
-│⭔ ${prefix}ytsearch [query]
-│⭔ ${prefix}ringtone [query]
-│⭔ ${prefix}stalk [option] [query]
-│
-└───────⭓
+    *Search Menu*
+ 
+•➣ ${prefix}play [query]
+•➣ ${prefix}yts [query]
+•➣ ${prefix}google [query]
+•➣ ${prefix}gimage [query]
+•➣ ${prefix}pinterest [query]
+•➣ ${prefix}wallpaper [query]
+•➣ ${prefix}wikimedia [query]
+•➣ ${prefix}ytsearch [query]
+•➣ ${prefix}ringtone [query]
+•➣ ${prefix}stalk [option] [query]
 
-┌──⭓ *Random Menu*
-│
-│⭔ ${prefix}coffe
-│⭔ ${prefix}quotesanime
-│⭔ ${prefix}motivasi
-│⭔ ${prefix}dilanquote
-│⭔ ${prefix}bucinquote
-│⭔ ${prefix}katasenja
-│⭔ ${prefix}puisi
-│⭔ ${prefix}couple
-│⭔ ${prefix}anime
-│⭔ ${prefix}waifu
-│⭔ ${prefix}husbu
-│⭔ ${prefix}neko
-│⭔ ${prefix}shinobu
-│
-└───────⭓
+    *Random Menu*
 
-┌──⭓ *Text Pro Menu*
-│
-│⭔ ${prefix}3dchristmas
-│⭔ ${prefix}3ddeepsea
-│⭔ ${prefix}americanflag
-│⭔ ${prefix}3dscifi
-│⭔ ${prefix}3drainbow
-│⭔ ${prefix}3dwaterpipe
-│⭔ ${prefix}halloweenskeleton
-│⭔ ${prefix}sketch
-│⭔ ${prefix}bluecircuit
-│⭔ ${prefix}space
-│⭔ ${prefix}metallic
-│⭔ ${prefix}fiction
-│⭔ ${prefix}greenhorror
-│⭔ ${prefix}transformer
-│⭔ ${prefix}berry
-│⭔ ${prefix}thunder
-│⭔ ${prefix}magma
-│⭔ ${prefix}3dcrackedstone
-│⭔ ${prefix}3dneonlight
-│⭔ ${prefix}impressiveglitch
-│⭔ ${prefix}naturalleaves
-│⭔ ${prefix}fireworksparkle
-│⭔ ${prefix}matrix
-│⭔ ${prefix}dropwater
-│⭔ ${prefix}harrypotter
-│⭔ ${prefix}foggywindow
-│⭔ ${prefix}neondevils
-│⭔ ${prefix}christmasholiday
-│⭔ ${prefix}3dgradient
-│⭔ ${prefix}blackpink
-│⭔ ${prefix}gluetext
-│
-└───────⭓
+•➣ ${prefix}coffe
+•➣ ${prefix}quotesanime
+•➣ ${prefix}motivasi
+•➣ ${prefix}dilanquote
+•➣ ${prefix}bucinquote
+•➣ ${prefix}katasenja
+•➣ ${prefix}puisi
+•➣ ${prefix}couple
+•➣ ${prefix}anime
+•➣ ${prefix}waifu
+•➣ ${prefix}husbu
+•➣ ${prefix}neko
+•➣ ${prefix}shinobu
 
-┌──⭓ *Photo Oxy Menu*
-│
-│⭔ ${prefix}shadow
-│⭔ ${prefix}romantic
-│⭔ ${prefix}smoke
-│⭔ ${prefix}burnpapper
-│⭔ ${prefix}naruto
-│⭔ ${prefix}lovemsg
-│⭔ ${prefix}grassmsg
-│⭔ ${prefix}lovetext
-│⭔ ${prefix}coffecup
-│⭔ ${prefix}butterfly
-│⭔ ${prefix}harrypotter
-│⭔ ${prefix}retrolol
-│
-└───────⭓
+    *Text Pro Menu*
 
-┌──⭓ *Ephoto Menu*
-│
-│⭔ ${prefix}ffcover
-│⭔ ${prefix}crossfire
-│⭔ ${prefix}galaxy
-│⭔ ${prefix}glass
-│⭔ ${prefix}neon
-│⭔ ${prefix}beach
-│⭔ ${prefix}blackpink
-│⭔ ${prefix}igcertificate
-│⭔ ${prefix}ytcertificate
-│
-└───────⭓
+•➣ ${prefix}3dchristmas
+•➣ ${prefix}3ddeepsea
+•➣ ${prefix}americanflag
+•➣ ${prefix}3dscifi
+•➣ ${prefix}3drainbow
+•➣ ${prefix}3dwaterpipe
+•➣ ${prefix}halloweenskeleton
+•➣ ${prefix}sketch
+•➣ ${prefix}bluecircuit
+•➣ ${prefix}space
+•➣ ${prefix}metallic
+•➣ ${prefix}fiction
+•➣ ${prefix}greenhorror
+•➣ ${prefix}transformer
+•➣ ${prefix}berry
+•➣ ${prefix}thunder
+•➣ ${prefix}magma
+•➣ ${prefix}3dcrackedstone
+•➣ ${prefix}3dneonlight
+•➣ ${prefix}impressiveglitch
+•➣ ${prefix}naturalleaves
+•➣ ${prefix}fireworksparkle
+•➣ ${prefix}matrix
+•➣ ${prefix}dropwater
+•➣ ${prefix}harrypotter
+•➣ ${prefix}foggywindow
+•➣ ${prefix}neondevils
+•➣ ${prefix}christmasholiday
+•➣ ${prefix}3dgradient
+•➣ ${prefix}blackpink
+•➣ ${prefix}gluetext
 
-┌──⭓ *Fun Menu*
-│
-│⭔ ${prefix}halah
-│⭔ ${prefix}hilih
-│⭔ ${prefix}huluh
-│⭔ ${prefix}heleh
-│⭔ ${prefix}holoh
-│⭔ ${prefix}jadian
-│⭔ ${prefix}jodohku
-│⭔ ${prefix}delttt
-│⭔ ${prefix}tictactoe
-│⭔ ${prefix}family100
-│⭔ ${prefix}tebak [option]
-│⭔ ${prefix}math [mode]
-│⭔ ${prefix}suitpvp [@tag]
-│
-└───────⭓
+    *Photo Oxy Menu*
 
-┌──⭓ *Primbon Menu*
-│
-│⭔ ${prefix}nomorhoki
-│⭔ ${prefix}artimimpi
-│⭔ ${prefix}artinama
-│⭔ ${prefix}ramaljodoh
-│⭔ ${prefix}ramaljodohbali
-│⭔ ${prefix}suamiistri
-│⭔ ${prefix}ramalcinta
-│⭔ ${prefix}cocoknama
-│⭔ ${prefix}pasangan
-│⭔ ${prefix}jadiannikah
-│⭔ ${prefix}sifatusaha
-│⭔ ${prefix}rezeki
-│⭔ ${prefix}pekerjaan
-│⭔ ${prefix}nasib
-│⭔ ${prefix}penyakit
-│⭔ ${prefix}tarot
-│⭔ ${prefix}fengshui
-│⭔ ${prefix}haribaik
-│⭔ ${prefix}harisangar
-│⭔ ${prefix}harisial
-│⭔ ${prefix}nagahari
-│⭔ ${prefix}arahrezeki
-│⭔ ${prefix}peruntungan
-│⭔ ${prefix}weton
-│⭔ ${prefix}karakter
-│⭔ ${prefix}keberuntungan
-│⭔ ${prefix}memancing
-│⭔ ${prefix}masasubur
-│⭔ ${prefix}zodiak
-│⭔ ${prefix}shio
-│
-└───────⭓
+•➣ ${prefix}shadow
+•➣ ${prefix}romantic
+•➣ ${prefix}smoke
+•➣ ${prefix}burnpapper
+•➣ ${prefix}naruto
+•➣ ${prefix}lovemsg
+•➣ ${prefix}grassmsg
+•➣ ${prefix}lovetext
+•➣ ${prefix}coffecup
+•➣ ${prefix}butterfly
+•➣ ${prefix}harrypotter
+•➣ ${prefix}retrolol
 
-┌──⭓ *Convert Menu*
-│
-│⭔ ${prefix}toimage
-│⭔ ${prefix}removebg
-│⭔ ${prefix}sticker
-│⭔ ${prefix}emojimix
-│⭔ ${prefix}tovideo
-│⭔ ${prefix}togif
-│⭔ ${prefix}tourl
-│⭔ ${prefix}tovn
-│⭔ ${prefix}tomp3
-│⭔ ${prefix}toaudio
-│⭔ ${prefix}ebinary
-│⭔ ${prefix}dbinary
-│⭔ ${prefix}styletext
-│
-└───────⭓
+    *Ephoto Menu*
 
-┌──⭓ *Main Menu*
-│
-│⭔ ${prefix}ping
-│⭔ ${prefix}owner
-│⭔ ${prefix}menu / ${prefix}help / ${prefix}?
-│⭔ ${prefix}delete
-│⭔ ${prefix}infochat
-│⭔ ${prefix}quoted
-│⭔ ${prefix}listpc
-│⭔ ${prefix}listgc
-│⭔ ${prefix}listonline
-│⭔ ${prefix}speedtest
-│
-└───────⭓
+•➣ ${prefix}ffcover
+•➣ ${prefix}crossfire
+•➣ ${prefix}galaxy
+•➣ ${prefix}glass
+•➣ ${prefix}neon
+•➣ ${prefix}beach
+•➣ ${prefix}blackpink
+•➣ ${prefix}igcertificate
+•➣ ${prefix}ytcertificate
 
-┌──⭓ *Database Menu*
-│
-│⭔ ${prefix}setcmd
-│⭔ ${prefix}listcmd
-│⭔ ${prefix}delcmd
-│⭔ ${prefix}lockcmd
-│⭔ ${prefix}addmsg
-│⭔ ${prefix}listmsg
-│⭔ ${prefix}getmsg
-│⭔ ${prefix}delmsg
-│
-└───────⭓
+    *Fun Menu*
 
-┌──⭓ *Anonymous Menu*
-│
-│⭔ ${prefix}anonymous
-│⭔ ${prefix}start
-│⭔ ${prefix}next
-│⭔ ${prefix}keluar
-│⭔ ${prefix}sendkontak
-│
-└───────⭓
+•➣ ${prefix}halah
+•➣ ${prefix}hilih
+•➣ ${prefix}huluh
+•➣ ${prefix}heleh
+•➣ ${prefix}holoh
+•➣ ${prefix}jadian
+•➣ ${prefix}jodohku
+•➣ ${prefix}delttt
+•➣ ${prefix}tictactoe
+•➣ ${prefix}family100
+•➣ ${prefix}tebak [option]
+•➣ ${prefix}math [mode]
+•➣ ${prefix}suitpvp [@tag]
 
-┌──⭓ *Islamic Menu*
-│
-│⭔ ${prefix}iqra
-│⭔ ${prefix}hadist
-│⭔ ${prefix}alquran
-│⭔ ${prefix}juzamma
-│⭔ ${prefix}tafsirsurah
-│
-└───────⭓
+    *Primbon Menu*
 
-┌──⭓ *Voice Changer*
-│
-│⭔ ${prefix}bass
-│⭔ ${prefix}blown
-│⭔ ${prefix}deep
-│⭔ ${prefix}earrape
-│⭔ ${prefix}fast
-│⭔ ${prefix}fat
-│⭔ ${prefix}nightcore
-│⭔ ${prefix}reverse
-│⭔ ${prefix}robot
-│⭔ ${prefix}slow
-│⭔ ${prefix}tupai
-│
-└───────⭓
+•➣ ${prefix}nomorhoki
+•➣ ${prefix}artimimpi
+•➣ ${prefix}artinama
+•➣ ${prefix}ramaljodoh
+•➣ ${prefix}ramaljodohbali
+•➣ ${prefix}suamiistri
+•➣ ${prefix}ramalcinta
+•➣ ${prefix}cocoknama
+•➣ ${prefix}pasangan
+•➣ ${prefix}jadiannikah
+•➣ ${prefix}sifatusaha
+•➣ ${prefix}rezeki
+•➣ ${prefix}pekerjaan
+•➣ ${prefix}nasib
+•➣ ${prefix}penyakit
+•➣ ${prefix}tarot
+•➣ ${prefix}fengshui
+•➣ ${prefix}haribaik
+•➣ ${prefix}harisangar
+•➣ ${prefix}harisial
+•➣ ${prefix}nagahari
+•➣ ${prefix}arahrezeki
+•➣ ${prefix}peruntungan
+•➣ ${prefix}weton
+•➣ ${prefix}karakter
+•➣ ${prefix}keberuntungan
+•➣ ${prefix}memancing
+•➣ ${prefix}masasubur
+•➣ ${prefix}zodiak
+•➣ ${prefix}shio
 
-┌──⭓ *Owner Menu*
-│
-│⭔ ${prefix}react [emoji]
-│⭔ ${prefix}chat [option]
-│⭔ ${prefix}join [link]
-│⭔ ${prefix}leave
-│⭔ ${prefix}block @user
-│⭔ ${prefix}unblock @user
-│⭔ ${prefix}bcgroup [text]
-│⭔ ${prefix}bcall [text]
-│⭔ ${prefix}setppbot [image]
-│⭔ ${prefix}setexif
-│
-└───────⭓`
+    *Convert Menu*
+
+•➣ ${prefix}toimage
+•➣ ${prefix}removebg
+•➣ ${prefix}sticker
+•➣ ${prefix}emojimix
+•➣ ${prefix}tovideo
+•➣ ${prefix}togif
+•➣ ${prefix}tourl
+•➣ ${prefix}tovn
+•➣ ${prefix}tomp3
+•➣ ${prefix}toaudio
+•➣ ${prefix}ebinary
+•➣ ${prefix}dbinary
+•➣ ${prefix}styletext
+
+    *Main Menu*
+
+•➣ ${prefix}ping
+•➣ ${prefix}owner
+•➣ ${prefix}menu / ${prefix}help / ${prefix}?
+•➣ ${prefix}delete
+•➣ ${prefix}infochat
+•➣ ${prefix}quoted
+•➣ ${prefix}listpc
+•➣ ${prefix}listgc
+•➣ ${prefix}listonline
+•➣ ${prefix}speedtest
+
+    *Database Menu*
+
+•➣ ${prefix}setcmd
+•➣ ${prefix}listcmd
+•➣ ${prefix}delcmd
+•➣ ${prefix}lockcmd
+•➣ ${prefix}addmsg
+•➣ ${prefix}listmsg
+•➣ ${prefix}getmsg
+•➣ ${prefix}delmsg
+
+    *Anonymous Menu*
+
+•➣ ${prefix}anonymous
+•➣ ${prefix}start
+•➣ ${prefix}next
+•➣ ${prefix}keluar
+•➣ ${prefix}sendkontak
+
+    *Islamic Menu*
+
+•➣ ${prefix}iqra
+•➣ ${prefix}hadist
+•➣ ${prefix}alquran
+•➣ ${prefix}juzamma
+•➣ ${prefix}tafsirsurah
+
+    *Voice Changer*
+
+•➣ ${prefix}bass
+•➣ ${prefix}blown
+•➣ ${prefix}deep
+•➣ ${prefix}earrape
+•➣ ${prefix}fast
+•➣ ${prefix}fat
+•➣ ${prefix}nightcore
+•➣ ${prefix}reverse
+•➣ ${prefix}robot
+•➣ ${prefix}slow
+•➣ ${prefix}tupai
+
+    *Owner Menu*
+
+•➣ ${prefix}react [emoji]
+•➣ ${prefix}chat [option]
+•➣ ${prefix}join [link]
+•➣ ${prefix}leave
+•➣ ${prefix}block @user
+•➣ ${prefix}unblock @user
+•➣ ${prefix}bcgroup [text]
+•➣ ${prefix}bcall [text]
+•➣ ${prefix}setppbot [image]
+•➣ ${prefix}setexif`
                 let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
