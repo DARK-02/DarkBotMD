@@ -2587,40 +2587,40 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 anu = `*Last Update:* _21/05/2022 16:42 PM_
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command_
 *Who's Updated?:* _MrDark_
-┌──⭓ *DarkScript Menu*
-│
-│⭔ ${prefix}call [nomor]
-│⭔ ${prefix}nmap [IP]
-│⭔ ${prefix}hosttoip [url]
-│⭔ ${prefix}texttomorse [text]
-│⭔ ${prefix}simi [text]
-│⭔ ${prefix}ExploitWebdav [website] [html]
-│
-└───────⭓
-┌──⭓ *Group Menu*
-│
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}ephemeral [option]
-│⭔ ${prefix}setppgc [image]
-│⭔ ${prefix}setname [text]
-│⭔ ${prefix}setdesc [text]
-│⭔ ${prefix}group [option]
-│⭔ ${prefix}editinfo [option]
-│⭔ ${prefix}add @user
-│⭔ ${prefix}kick @user
-│⭔ ${prefix}hidetag [text]
-│⭔ ${prefix}tagall [text]
-│⭔ ${prefix}antilink [on/off]
-│⭔ ${prefix}mute [on/off]
-│⭔ ${prefix}promote @user
-│⭔ ${prefix}demote @user
-│⭔ ${prefix}vote [text]
-│⭔ ${prefix}devote
-│⭔ ${prefix}upvote
-│⭔ ${prefix}cekvote
-│⭔ ${prefix}hapusvote
-│
-└───────⭓
+════════════════════════════════
+    *DarkScript Menu*
+
+➣ ${prefix}call [nomor]
+➣ ${prefix}nmap [IP]
+➣ ${prefix}hosttoip [url]
+➣ ${prefix}texttomorse [text]
+➣ ${prefix}simi [text]
+➣ ${prefix}ExploitWebdav [website] [html]
+
+
+    *Group Menu*
+
+➣ ${prefix}linkgroup
+➣ ${prefix}ephemeral [option]
+➣ ${prefix}setppgc [image]
+➣ ${prefix}setname [text]
+➣ ${prefix}setdesc [text]
+➣ ${prefix}group [option]
+➣ ${prefix}editinfo [option]
+➣ ${prefix}add @user
+➣ ${prefix}kick @user
+➣ ${prefix}hidetag [text]
+➣ ${prefix}tagall [text]
+➣ ${prefix}antilink [on/off]
+➣ ${prefix}mute [on/off]
+➣ ${prefix}promote @user
+➣ ${prefix}demote @user
+➣ ${prefix}vote [text]
+➣ ${prefix}devote
+➣ ${prefix}upvote
+➣ ${prefix}cekvote
+➣ ${prefix}hapusvote
+
 
 ┌──⭓ *Downloader Menu*
 │
