@@ -1,7 +1,5 @@
 /**
-   * Create By Dika Ardnt.
-   * Contact Me on wa.me/6288292024190
-   * Follow https://github.com/DikaArdnt
+    * Base: https://github.com/DikaArdnt
 */
 
 require('./config')
@@ -2586,8 +2584,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _16/05/2022 05:18 PM_
-*What the updated:* _Added Prefix in the DarkMenu Command_
+                anu = `*Last Update:* _21/05/2022 16:42 PM_
+*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command_
 *Who's Updated?:* _MrDark_
 ┌──⭓ *DarkScript Menu*
 │
@@ -2902,7 +2900,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
-                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
+                                    url: 'https://github.com/DARK-02/DarkBot'
                                 }
                             }, {
                                 callButton: {
