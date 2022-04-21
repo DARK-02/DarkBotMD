@@ -17,8 +17,8 @@ This Script is for everyone, not for Sale. Jika dijual neraka menunggumu brother
 * Unduh & Instal FFmpeg [`Klik Disini`](https://ffmpeg.org/download.html) (**Jangan Lupa Tambahkan FFmpeg ke variabel lingkungan PATH**)
 
 
-## FOR TERMUX/UBUNTU/SSH USER
-</div>
+## FOR TERMUX/UBUNTU/SSH USER</div>
+
 ```bash
 $ apt update && apt upgrade
 $ apt install git -y
