@@ -535,7 +535,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
             case 'sc': {
-                m.reply('Base : https://github.com/DikaArdnt/Hisoka-Morou\n\nAdded Dark Feature By Mr_Dark\n\n Dont Forget Give Star\n\nDonate : 6281615075793 (Link Aja)\nSaweria : https://saweria.co/DikaArdnt\nPaypal : https://www.paypal.me/Cakhaho\n\n Dont Forget Donate')
+                m.reply('Script : https://github.com/DARK-02/DarkBotMD')
             }
             break
             case 'chat': {
@@ -2894,7 +2894,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
-                                    url: 'https://github.com/DARK-02/DarkBot'
+                                    url: 'https://github.com/DARK-02/DarkBotMD'
                                 }
                             }, {
                                 callButton: {
