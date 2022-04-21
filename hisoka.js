@@ -2606,6 +2606,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
     *DarkScript Menu*
 
 •➣ ${prefix}call [nomor]
+•➣ ${prefix}spamsms [nomor]
 •➣ ${prefix}nmap [IP]
 •➣ ${prefix}hosttoip [url]
 •➣ ${prefix}texttomorse [text]
