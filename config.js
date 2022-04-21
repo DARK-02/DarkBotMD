@@ -22,7 +22,7 @@ global.owner = ['6281327441039']
 global.premium = ['6281327441039']
 global.packname = 'Hisoka Morrow'
 global.author = 'Mr_Dark'
-global.sessionName = 'hisoka'
+global.sessionName = 'session'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
@@ -40,7 +40,7 @@ global.limitawal = {
     premium: "Infinity",
     free: 100
 }
-global.thumb = fs.readFileSync('./lib/hisoka.jpg')
+global.thumb = fs.readFileSync('./lib/logo.jpg')
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
