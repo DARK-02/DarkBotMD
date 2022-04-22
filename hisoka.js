@@ -2530,6 +2530,22 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
+	    case 'phonenumber-info':{
+	     if(text.includes("@")) {
+                    exec("python dark-phoneinfo.py "+text.split("@62")[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("8")) {
+                    	exec("python dark-phoneinfo.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 852****\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
+                    	}
+             }
+	    break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
@@ -2602,9 +2618,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 anu = `*Last Update:* _22/04/2022 05:34 PM_
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style_
 *Who's Updated?:* _MrDark_
-═════════════════════════════════
+════════════════════════════
     *DarkScript Menu*
 
+•➣ ${prefix}phonenumber-info [nomor]
 •➣ ${prefix}call [nomor]
 •➣ ${prefix}spamsms [nomor]
 •➣ ${prefix}nmap [IP]
