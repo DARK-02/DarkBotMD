@@ -2616,7 +2616,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _22/04/2022 09:54 PM_
+                anu = `*Last Update:* _22/04/2022 13:22 PM_
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command_
 *Who's Updated?:* _MrDark_
 ════════════════════════════
