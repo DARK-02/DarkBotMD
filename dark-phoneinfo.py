@@ -1,6 +1,7 @@
 import phonenumbers, shlex, sys
 from phonenumbers import carrier, geocoder, timezone
-mr_dark = " ".join(map(shlex.quote, sys.argv[1:]))
+mr_darkk = " ".join(map(shlex.quote, sys.argv[1:]))
+mr_dark = f"+{mr_darkk}"
 #mobileNo=input("Mobile no. with country code:")
 print (f"Info Nomor: {mr_dark}")
 mobileNo=mr_dark
