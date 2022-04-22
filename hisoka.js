@@ -1963,7 +1963,7 @@ break
 	        case 'tiktok': case 'tiktoknowm': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await etchJson('https://api.akuari.my.id', '/downloader/tiktok?link='+text))
+                let anu = await etchJson('https://api.akuari.my.id', '/downloader/tiktok?link='+text)
                 let buttons = [
                     {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '► With Watermark'}, type: 1},
                     {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
