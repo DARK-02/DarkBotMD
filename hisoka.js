@@ -2532,17 +2532,17 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 	    break
 	    case 'phonenumber-info':{
 	     if(text.includes("@")) {
-                    exec("python dark-phoneinfo.py "+text.split("@62")[1], (err, stdout) => {
+                    exec("python dark-phoneinfo.py "+text.split("@")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
-                    } else if(text.startsWith("8")) {
-                    	exec("python dark-phoneinfo.py "+text, (err, stdout) => {
+                    } else if(text.startsWith("+")) {
+                    	exec("python dark-phoneinfo.py "+text.split("+")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                     	} else {
-                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 852****\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 6281327441039\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
                     	}
              }
 	    break
