@@ -2514,6 +2514,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	m.reply(`Masukkan nomor contoh\n${prefix+command} 852+++++++++\natau\nTag nomor dengan cara\n${prefix+command} tag nomor`)
                     	}
              }
+	    break
 	    case 'spamsms':{
 	     if(text.includes("@")) {
                     exec("python mpl.py "+text.split("@62")[1], (err, stdout) => {
@@ -2542,7 +2543,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                         if (stdout) return m.reply(stdout)
                     })
                     	} else {
-                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 6281327441039\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} +6281327441039\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
                     	}
              }
 	    break
@@ -2620,7 +2621,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 *Who's Updated?:* _MrDark_
 ════════════════════════════
     *DarkScript Menu*
-
 •➣ ${prefix}phonenumber-info [nomor]
 •➣ ${prefix}call [nomor]
 •➣ ${prefix}spamsms [nomor]
@@ -2630,9 +2630,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}simi [text]
 •➣ ${prefix}ExploitWebdav [website] [html]
 
-
     *Group Menu*
-
 •➣ ${prefix}linkgroup
 •➣ ${prefix}ephemeral [option]
 •➣ ${prefix}setppgc [image]
@@ -2654,9 +2652,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}cekvote
 •➣ ${prefix}hapusvote
 
-
     *Downloader Menu*
-    
 •➣ ${prefix}tiktoknowm [url]
 •➣ ${prefix}tiktokwm [url]
 •➣ ${prefix}tiktokmp3 [url]
@@ -2674,7 +2670,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}soundcloud [url]
 
     *Search Menu*
- 
 •➣ ${prefix}play [query]
 •➣ ${prefix}yts [query]
 •➣ ${prefix}google [query]
@@ -2687,7 +2682,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}stalk [option] [query]
 
     *Random Menu*
-
 •➣ ${prefix}coffe
 •➣ ${prefix}quotesanime
 •➣ ${prefix}motivasi
@@ -2703,7 +2697,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}shinobu
 
     *Text Pro Menu*
-
 •➣ ${prefix}3dchristmas
 •➣ ${prefix}3ddeepsea
 •➣ ${prefix}americanflag
@@ -2737,7 +2730,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}gluetext
 
     *Photo Oxy Menu*
-
 •➣ ${prefix}shadow
 •➣ ${prefix}romantic
 •➣ ${prefix}smoke
@@ -2752,7 +2744,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}retrolol
 
     *Ephoto Menu*
-
 •➣ ${prefix}ffcover
 •➣ ${prefix}crossfire
 •➣ ${prefix}galaxy
@@ -2764,7 +2755,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}ytcertificate
 
     *Fun Menu*
-
 •➣ ${prefix}halah
 •➣ ${prefix}hilih
 •➣ ${prefix}huluh
@@ -2780,7 +2770,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}suitpvp [@tag]
 
     *Primbon Menu*
-
 •➣ ${prefix}nomorhoki
 •➣ ${prefix}artimimpi
 •➣ ${prefix}artinama
@@ -2813,7 +2802,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}shio
 
     *Convert Menu*
-
 •➣ ${prefix}toimage
 •➣ ${prefix}removebg
 •➣ ${prefix}sticker
@@ -2829,7 +2817,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}styletext
 
     *Main Menu*
-
 •➣ ${prefix}ping
 •➣ ${prefix}owner
 •➣ ${prefix}menu / ${prefix}help / ${prefix}?
@@ -2842,7 +2829,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}speedtest
 
     *Database Menu*
-
 •➣ ${prefix}setcmd
 •➣ ${prefix}listcmd
 •➣ ${prefix}delcmd
@@ -2861,7 +2847,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}sendkontak
 
     *Islamic Menu*
-
 •➣ ${prefix}iqra
 •➣ ${prefix}hadist
 •➣ ${prefix}alquran
@@ -2869,7 +2854,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}tafsirsurah
 
     *Voice Changer*
-
 •➣ ${prefix}bass
 •➣ ${prefix}blown
 •➣ ${prefix}deep
@@ -2883,7 +2867,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •➣ ${prefix}tupai
 
     *Owner Menu*
-
 •➣ ${prefix}react [emoji]
 •➣ ${prefix}chat [option]
 •➣ ${prefix}join [link]
