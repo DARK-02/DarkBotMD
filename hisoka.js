@@ -1,5 +1,5 @@
 /**
-    * Base: https://github.com/DikaArdnt
+* Base: https://github.com/DikaArdnt
 */
 
 require('./config')
@@ -172,7 +172,7 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
         hisoka.ev.emit('messages.upsert', msg)
         }
 	    
-	if (('family100'+m.chat in _family100) && isCmd) {
+	if (('family100'+m.chat in _family100) && !isCmd) {
             kuis = true
             let room = _family100['family100'+m.chat]
             let teks = budy.toLowerCase().replace(/[^\w\s\-]+/, '')
@@ -194,7 +194,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (isWin || isSurender) delete _family100['family100'+m.chat]
         }
 
-        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -203,7 +203,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = kuismath[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -212,7 +212,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -221,7 +221,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -230,7 +230,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
@@ -241,7 +241,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -250,7 +250,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -259,7 +259,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 	    
-	if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+	if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && !isCmd) {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -1455,24 +1455,24 @@ break
                 if (!text) throw `Example : ${prefix + command} story wa anime`
                 let yts = require("yt-search")
                 let search = await yts(text)
-                let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
+             /*   let anu = search.videos[Math.floor(Math.random() * search.videos.length)]*/
                 let buttons = [
-                    {buttonId: `ytmp3 ${anu.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
-                    {buttonId: `ytmp4 ${anu.url}`, buttonText: {displayText: '► Video'}, type: 1}
+                    {buttonId: `ytmp3 ${search.videos[0].url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
+                    {buttonId: `ytmp4 ${search.videos[0].url}`, buttonText: {displayText: '► Video'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: anu.thumbnail },
+                    image: { url: search.videos[0].thumbnail },
                     caption: `
-⭔ Title : ${anu.title}
+⭔ Title : ${search.videos[0].title}
 ⭔ Ext : Search
-⭔ ID : ${anu.videoId}
-⭔ Duration : ${anu.timestamp}
-⭔ Viewers : ${anu.views}
-⭔ Upload At : ${anu.ago}
-⭔ Author : ${anu.author.name}
-⭔ Channel : ${anu.author.url}
-⭔ Description : ${anu.description}
-⭔ Url : ${anu.url}`,
+⭔ ID : ${search.videos[0].videoId}
+⭔ Duration : ${search.videos[0].timestamp}
+⭔ Viewers : ${search.videos[0].views}
+⭔ Upload At : ${search.videos[0].ago}
+⭔ Author : ${search.videos[0].author.name}
+⭔ Channel : ${search.videos[0].author.url}
+⭔ Description : ${search.videos[0].description}
+⭔ Url : ${search.videos[0].url}`,
                     footer: hisoka.user.name,
                     buttons: buttons,
                     headerType: 4
@@ -2616,294 +2616,299 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _22/04/2022 13:22 PM_
+                anu = `*Last Update:* _25/04/2022 00:43 PM_
+                
+══════════════════════
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command_
-*Who's Updated?:* _MrDark_
-════════════════════════════
-    *DarkScript Menu*
-•➣ ${prefix}phonenumber-info [nomor]
-•➣ ${prefix}call [nomor]
-•➣ ${prefix}spamsms [nomor]
-•➣ ${prefix}nmap [IP]
-•➣ ${prefix}hosttoip [url]
-•➣ ${prefix}texttomorse [text]
-•➣ ${prefix}simi [text]
-•➣ ${prefix}ExploitWebdav [website] [html]
+*Who's Updated?:* _MrDark_ & _Perwira_
+══════════════════════
 
-    *Group Menu*
-•➣ ${prefix}linkgroup
-•➣ ${prefix}ephemeral [option]
-•➣ ${prefix}setppgc [image]
-•➣ ${prefix}setname [text]
-•➣ ${prefix}setdesc [text]
-•➣ ${prefix}group [option]
-•➣ ${prefix}editinfo [option]
-•➣ ${prefix}add @user
-•➣ ${prefix}kick @user
-•➣ ${prefix}hidetag [text]
-•➣ ${prefix}tagall [text]
-•➣ ${prefix}antilink [on/off]
-•➣ ${prefix}mute [on/off]
-•➣ ${prefix}promote @user
-•➣ ${prefix}demote @user
-•➣ ${prefix}vote [text]
-•➣ ${prefix}devote
-•➣ ${prefix}upvote
-•➣ ${prefix}cekvote
-•➣ ${prefix}hapusvote
 
-    *Downloader Menu*
-•➣ ${prefix}tiktoknowm [url]
-•➣ ${prefix}tiktokwm [url]
-•➣ ${prefix}tiktokmp3 [url]
-•➣ ${prefix}instagram [url]
-•➣ ${prefix}twitter [url]
-•➣ ${prefix}twittermp3 [url]
-•➣ ${prefix}facebook [url]
-•➣ ${prefix}pinterestdl [url]
-•➣ ${prefix}ytmp3 [url]
-•➣ ${prefix}ytmp4 [url]
-•➣ ${prefix}getmusic [query]
-•➣ ${prefix}getvideo [query]
-•➣ ${prefix}umma [url]
-•➣ ${prefix}joox [query]
-•➣ ${prefix}soundcloud [url]
+*DarkScript Menu*
+•≽  ${prefix}phonenumber-info [nomor]
+•≽  ${prefix}call [nomor]
+•≽  ${prefix}spamsms [nomor]
+•≽  ${prefix}nmap [IP]
+•≽  ${prefix}hosttoip [url]
+•≽  ${prefix}texttomorse [text]
+•≽  ${prefix}simi [text]
+•≽  ${prefix}ExploitWebdav [website] [html]
 
-    *Search Menu*
-•➣ ${prefix}play [query]
-•➣ ${prefix}yts [query]
-•➣ ${prefix}google [query]
-•➣ ${prefix}gimage [query]
-•➣ ${prefix}pinterest [query]
-•➣ ${prefix}wallpaper [query]
-•➣ ${prefix}wikimedia [query]
-•➣ ${prefix}ytsearch [query]
-•➣ ${prefix}ringtone [query]
-•➣ ${prefix}stalk [option] [query]
+*Group Menu*
+•≽  ${prefix}linkgroup
+•≽  ${prefix}ephemeral [option]
+•≽  ${prefix}setppgc [image]
+•≽  ${prefix}setname [text]
+•≽  ${prefix}setdesc [text]
+•≽  ${prefix}group [option]
+•≽  ${prefix}editinfo [option]
+•≽  ${prefix}add @user
+•≽  ${prefix}kick @user
+•≽  ${prefix}hidetag [text]
+•≽  ${prefix}tagall [text]
+•≽  ${prefix}antilink [on/off]
+•≽  ${prefix}mute [on/off]
+•≽  ${prefix}promote @user
+•≽  ${prefix}demote @user
+•≽  ${prefix}vote [text]
+•≽  ${prefix}devote
+•≽  ${prefix}upvote
+•≽  ${prefix}cekvote
+•≽  ${prefix}hapusvote
 
-    *Random Menu*
-•➣ ${prefix}coffe
-•➣ ${prefix}quotesanime
-•➣ ${prefix}motivasi
-•➣ ${prefix}dilanquote
-•➣ ${prefix}bucinquote
-•➣ ${prefix}katasenja
-•➣ ${prefix}puisi
-•➣ ${prefix}couple
-•➣ ${prefix}anime
-•➣ ${prefix}waifu
-•➣ ${prefix}husbu
-•➣ ${prefix}neko
-•➣ ${prefix}shinobu
+*Downloader Menu*
+•≽  ${prefix}tiktoknowm [url]
+•≽  ${prefix}tiktokwm [url]
+•≽  ${prefix}tiktokmp3 [url]
+•≽  ${prefix}instagram [url]
+•≽  ${prefix}twitter [url]
+•≽  ${prefix}twittermp3 [url]
+•≽  ${prefix}facebook [url]
+•≽  ${prefix}pinterestdl [url]
+•≽  ${prefix}ytmp3 [url]
+•≽  ${prefix}ytmp4 [url]
+•≽  ${prefix}getmusic [query]
+•≽  ${prefix}getvideo [query]
+•≽  ${prefix}umma [url]
+•≽  ${prefix}joox [query]
+•≽  ${prefix}soundcloud [url]
 
-    *Text Pro Menu*
-•➣ ${prefix}3dchristmas
-•➣ ${prefix}3ddeepsea
-•➣ ${prefix}americanflag
-•➣ ${prefix}3dscifi
-•➣ ${prefix}3drainbow
-•➣ ${prefix}3dwaterpipe
-•➣ ${prefix}halloweenskeleton
-•➣ ${prefix}sketch
-•➣ ${prefix}bluecircuit
-•➣ ${prefix}space
-•➣ ${prefix}metallic
-•➣ ${prefix}fiction
-•➣ ${prefix}greenhorror
-•➣ ${prefix}transformer
-•➣ ${prefix}berry
-•➣ ${prefix}thunder
-•➣ ${prefix}magma
-•➣ ${prefix}3dcrackedstone
-•➣ ${prefix}3dneonlight
-•➣ ${prefix}impressiveglitch
-•➣ ${prefix}naturalleaves
-•➣ ${prefix}fireworksparkle
-•➣ ${prefix}matrix
-•➣ ${prefix}dropwater
-•➣ ${prefix}harrypotter
-•➣ ${prefix}foggywindow
-•➣ ${prefix}neondevils
-•➣ ${prefix}christmasholiday
-•➣ ${prefix}3dgradient
-•➣ ${prefix}blackpink
-•➣ ${prefix}gluetext
+*Search Menu*
+•≽  ${prefix}play [query]
+•≽  ${prefix}yts [query]
+•≽  ${prefix}google [query]
+•≽  ${prefix}gimage [query]
+•≽  ${prefix}pinterest [query]
+•≽  ${prefix}wallpaper [query]
+•≽  ${prefix}wikimedia [query]
+•≽  ${prefix}ytsearch [query]
+•≽  ${prefix}ringtone [query]
+•≽  ${prefix}stalk [option] [query]
 
-    *Photo Oxy Menu*
-•➣ ${prefix}shadow
-•➣ ${prefix}romantic
-•➣ ${prefix}smoke
-•➣ ${prefix}burnpapper
-•➣ ${prefix}naruto
-•➣ ${prefix}lovemsg
-•➣ ${prefix}grassmsg
-•➣ ${prefix}lovetext
-•➣ ${prefix}coffecup
-•➣ ${prefix}butterfly
-•➣ ${prefix}harrypotter
-•➣ ${prefix}retrolol
+*Random Menu*
+•≽  ${prefix}coffe
+•≽  ${prefix}quotesanime
+•≽  ${prefix}motivasi
+•≽  ${prefix}dilanquote
+•≽  ${prefix}bucinquote
+•≽  ${prefix}katasenja
+•≽  ${prefix}puisi
+•≽  ${prefix}couple
+•≽  ${prefix}anime
+•≽  ${prefix}waifu
+•≽  ${prefix}husbu
+•≽  ${prefix}neko
+•≽  ${prefix}shinobu
 
-    *Ephoto Menu*
-•➣ ${prefix}ffcover
-•➣ ${prefix}crossfire
-•➣ ${prefix}galaxy
-•➣ ${prefix}glass
-•➣ ${prefix}neon
-•➣ ${prefix}beach
-•➣ ${prefix}blackpink
-•➣ ${prefix}igcertificate
-•➣ ${prefix}ytcertificate
+*Text Pro Menu*
+•≽  ${prefix}3dchristmas
+•≽  ${prefix}3ddeepsea
+•≽  ${prefix}americanflag
+•≽  ${prefix}3dscifi
+•≽  ${prefix}3drainbow
+•≽  ${prefix}3dwaterpipe
+•≽  ${prefix}halloweenskeleton
+•≽  ${prefix}sketch
+•≽  ${prefix}bluecircuit
+•≽  ${prefix}space
+•≽  ${prefix}metallic
+•≽  ${prefix}fiction
+•≽  ${prefix}greenhorror
+•≽  ${prefix}transformer
+•≽  ${prefix}berry
+•≽  ${prefix}thunder
+•≽  ${prefix}magma
+•≽  ${prefix}3dcrackedstone
+•≽  ${prefix}3dneonlight
+•≽  ${prefix}impressiveglitch
+•≽  ${prefix}naturalleaves
+•≽  ${prefix}fireworksparkle
+•≽  ${prefix}matrix
+•≽  ${prefix}dropwater
+•≽  ${prefix}harrypotter
+•≽  ${prefix}foggywindow
+•≽  ${prefix}neondevils
+•≽  ${prefix}christmasholiday
+•≽  ${prefix}3dgradient
+•≽  ${prefix}blackpink
+•≽  ${prefix}gluetext
 
-    *Fun Menu*
-•➣ ${prefix}halah
-•➣ ${prefix}hilih
-•➣ ${prefix}huluh
-•➣ ${prefix}heleh
-•➣ ${prefix}holoh
-•➣ ${prefix}jadian
-•➣ ${prefix}jodohku
-•➣ ${prefix}delttt
-•➣ ${prefix}tictactoe
-•➣ ${prefix}family100
-•➣ ${prefix}tebak [option]
-•➣ ${prefix}math [mode]
-•➣ ${prefix}suitpvp [@tag]
+*Photo Oxy Menu*
+•≽  ${prefix}shadow
+•≽  ${prefix}romantic
+•≽  ${prefix}smoke
+•≽  ${prefix}burnpapper
+•≽  ${prefix}naruto
+•≽  ${prefix}lovemsg
+•≽  ${prefix}grassmsg
+•≽  ${prefix}lovetext
+•≽  ${prefix}coffecup
+•≽  ${prefix}butterfly
+•≽  ${prefix}harrypotter
+•≽  ${prefix}retrolol
 
-    *Primbon Menu*
-•➣ ${prefix}nomorhoki
-•➣ ${prefix}artimimpi
-•➣ ${prefix}artinama
-•➣ ${prefix}ramaljodoh
-•➣ ${prefix}ramaljodohbali
-•➣ ${prefix}suamiistri
-•➣ ${prefix}ramalcinta
-•➣ ${prefix}cocoknama
-•➣ ${prefix}pasangan
-•➣ ${prefix}jadiannikah
-•➣ ${prefix}sifatusaha
-•➣ ${prefix}rezeki
-•➣ ${prefix}pekerjaan
-•➣ ${prefix}nasib
-•➣ ${prefix}penyakit
-•➣ ${prefix}tarot
-•➣ ${prefix}fengshui
-•➣ ${prefix}haribaik
-•➣ ${prefix}harisangar
-•➣ ${prefix}harisial
-•➣ ${prefix}nagahari
-•➣ ${prefix}arahrezeki
-•➣ ${prefix}peruntungan
-•➣ ${prefix}weton
-•➣ ${prefix}karakter
-•➣ ${prefix}keberuntungan
-•➣ ${prefix}memancing
-•➣ ${prefix}masasubur
-•➣ ${prefix}zodiak
-•➣ ${prefix}shio
+*Ephoto Menu*
+•≽  ${prefix}ffcover
+•≽  ${prefix}crossfire
+•≽  ${prefix}galaxy
+•≽  ${prefix}glass
+•≽  ${prefix}neon
+•≽  ${prefix}beach
+•≽  ${prefix}blackpink
+•≽  ${prefix}igcertificate
+•≽  ${prefix}ytcertificate
 
-    *Convert Menu*
-•➣ ${prefix}toimage
-•➣ ${prefix}removebg
-•➣ ${prefix}sticker
-•➣ ${prefix}emojimix
-•➣ ${prefix}tovideo
-•➣ ${prefix}togif
-•➣ ${prefix}tourl
-•➣ ${prefix}tovn
-•➣ ${prefix}tomp3
-•➣ ${prefix}toaudio
-•➣ ${prefix}ebinary
-•➣ ${prefix}dbinary
-•➣ ${prefix}styletext
+*Fun Menu*
+•≽  ${prefix}halah
+•≽  ${prefix}hilih
+•≽  ${prefix}huluh
+•≽  ${prefix}heleh
+•≽  ${prefix}holoh
+•≽  ${prefix}jadian
+•≽  ${prefix}jodohku
+•≽  ${prefix}delttt
+•≽  ${prefix}tictactoe
+•≽  ${prefix}family100
+•≽  ${prefix}tebak [option]
+•≽  ${prefix}math [mode]
+•≽  ${prefix}suitpvp [@tag]
 
-    *Main Menu*
-•➣ ${prefix}ping
-•➣ ${prefix}owner
-•➣ ${prefix}menu / ${prefix}help / ${prefix}?
-•➣ ${prefix}delete
-•➣ ${prefix}infochat
-•➣ ${prefix}quoted
-•➣ ${prefix}listpc
-•➣ ${prefix}listgc
-•➣ ${prefix}listonline
-•➣ ${prefix}speedtest
+*Primbon Menu*
+•≽  ${prefix}nomorhoki
+•≽  ${prefix}artimimpi
+•≽  ${prefix}artinama
+•≽  ${prefix}ramaljodoh
+•≽  ${prefix}ramaljodohbali
+•≽  ${prefix}suamiistri
+•≽  ${prefix}ramalcinta
+•≽  ${prefix}cocoknama
+•≽  ${prefix}pasangan
+•≽  ${prefix}jadiannikah
+•≽  ${prefix}sifatusaha
+•≽  ${prefix}rezeki
+•≽  ${prefix}pekerjaan
+•≽  ${prefix}nasib
+•≽  ${prefix}penyakit
+•≽  ${prefix}tarot
+•≽  ${prefix}fengshui
+•≽  ${prefix}haribaik
+•≽  ${prefix}harisangar
+•≽  ${prefix}harisial
+•≽  ${prefix}nagahari
+•≽  ${prefix}arahrezeki
+•≽  ${prefix}peruntungan
+•≽  ${prefix}weton
+•≽  ${prefix}karakter
+•≽  ${prefix}keberuntungan
+•≽  ${prefix}memancing
+•≽  ${prefix}masasubur
+•≽  ${prefix}zodiak
+•≽  ${prefix}shio
 
-    *Database Menu*
-•➣ ${prefix}setcmd
-•➣ ${prefix}listcmd
-•➣ ${prefix}delcmd
-•➣ ${prefix}lockcmd
-•➣ ${prefix}addmsg
-•➣ ${prefix}listmsg
-•➣ ${prefix}getmsg
-•➣ ${prefix}delmsg
+*Convert Menu*
+•≽  ${prefix}toimage
+•≽  ${prefix}removebg
+•≽  ${prefix}sticker
+•≽  ${prefix}emojimix
+•≽  ${prefix}tovideo
+•≽  ${prefix}togif
+•≽  ${prefix}tourl
+•≽  ${prefix}tovn
+•≽  ${prefix}tomp3
+•≽  ${prefix}toaudio
+•≽  ${prefix}ebinary
+•≽  ${prefix}dbinary
+•≽  ${prefix}styletext
 
-    *Anonymous Menu*
+*Main Menu*
+•≽  ${prefix}ping
+•≽  ${prefix}owner
+•≽  ${prefix}menu / ${prefix}help / ${prefix}?
+•≽  ${prefix}delete
+•≽  ${prefix}infochat
+•≽  ${prefix}quoted
+•≽  ${prefix}listpc
+•≽  ${prefix}listgc
+•≽  ${prefix}listonline
+•≽  ${prefix}speedtest
 
-•➣ ${prefix}anonymous
-•➣ ${prefix}start
-•➣ ${prefix}next
-•➣ ${prefix}keluar
-•➣ ${prefix}sendkontak
+*Database Menu*
+•≽  ${prefix}setcmd
+•≽  ${prefix}listcmd
+•≽  ${prefix}delcmd
+•≽  ${prefix}lockcmd
+•≽  ${prefix}addmsg
+•≽  ${prefix}listmsg
+•≽  ${prefix}getmsg
+•≽  ${prefix}delmsg
 
-    *Islamic Menu*
-•➣ ${prefix}iqra
-•➣ ${prefix}hadist
-•➣ ${prefix}alquran
-•➣ ${prefix}juzamma
-•➣ ${prefix}tafsirsurah
+*Anonymous Menu*
 
-    *Voice Changer*
-•➣ ${prefix}bass
-•➣ ${prefix}blown
-•➣ ${prefix}deep
-•➣ ${prefix}earrape
-•➣ ${prefix}fast
-•➣ ${prefix}fat
-•➣ ${prefix}nightcore
-•➣ ${prefix}reverse
-•➣ ${prefix}robot
-•➣ ${prefix}slow
-•➣ ${prefix}tupai
+•≽  ${prefix}anonymous
+•≽  ${prefix}start
+•≽  ${prefix}next
+•≽  ${prefix}keluar
+•≽  ${prefix}sendkontak
 
-    *Owner Menu*
-•➣ ${prefix}react [emoji]
-•➣ ${prefix}chat [option]
-•➣ ${prefix}join [link]
-•➣ ${prefix}leave
-•➣ ${prefix}block @user
-•➣ ${prefix}unblock @user
-•➣ ${prefix}bcgroup [text]
-•➣ ${prefix}bcall [text]
-•➣ ${prefix}setppbot [image]
-•➣ ${prefix}setexif`
+*Islamic Menu*
+•≽  ${prefix}iqra
+•≽  ${prefix}hadist
+•≽  ${prefix}alquran
+•≽  ${prefix}juzamma
+•≽  ${prefix}tafsirsurah
+
+*Voice Changer*
+•≽  ${prefix}bass
+•≽  ${prefix}blown
+•≽  ${prefix}deep
+•≽  ${prefix}earrape
+•≽  ${prefix}fast
+•≽  ${prefix}fat
+•≽  ${prefix}nightcore
+•≽  ${prefix}reverse
+•≽  ${prefix}robot
+•≽  ${prefix}slow
+•≽  ${prefix}tupai
+
+*Owner Menu*
+•≽  ${prefix}react [emoji]
+•≽  ${prefix}chat [option]
+•≽  ${prefix}join [link]
+•≽  ${prefix}leave
+•≽  ${prefix}block @user
+•≽  ${prefix}unblock @user
+•≽  ${prefix}bcgroup [text]
+•≽  ${prefix}bcall [text]
+•≽  ${prefix}setppbot [image]
+•≽  ${prefix}setexif
+`
                 let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
+                                    displayText: 'Script',
                                     url: 'https://github.com/DARK-02/DarkBotMD'
                                 }
                             }, {
                                 callButton: {
-                                    displayText: 'Number Phone Owner',
+                                    displayText: 'Phone',
                                     phoneNumber: '+62 813-2744-1039'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Status Bot',
+                                    displayText: 'Network',
                                     id: 'ping'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Contact Owner',
+                                    displayText: 'Owner',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Script',
+                                    displayText: 'Base Bot',
                                     id: 'sc'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'DarkBot ~ Multi Device', global.thumb, btn)
                      }
             break
             default:
