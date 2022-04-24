@@ -25,6 +25,8 @@ $ apt update && apt upgrade
 $ apt install git -y
 $ apt install nodejs -y
 $ apt install ffmpeg -y
+$ apt install python3 -y
+$ python3 setup.py install
 $ apt install yarn (untuk termux)
 $ git clone https://github.com/DARK-02/DarkBotMD
 $ cd DarkBotMD
