@@ -23,7 +23,7 @@ global.premium = ['6281327441039']
 global.packname = 'Hisoka Morrow'
 global.author = 'Mr_Dark'
 global.sessionName = 'session'
-global.prefa = ['','!','.','🐦','🐤','🗿']
+global.prefa = ['/','!','.','#',',','_']
 global.sp = '⭔'
 global.mess = {
     success: '✓ Success',
