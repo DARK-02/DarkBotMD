@@ -1,6 +1,19 @@
+
+# Deploy
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DARK-02/DarkBotMD)
+
 <div align="center">
 <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Developer.gif" alt="Mario Game" width="300" />
 <div align="center">
+<p align="center">
+<a href="#"><img title="DarkBotMD" src="https://img.shields.io/badge/Bot MultiDevice-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+</p>
+<p align="center">
+<a href="https://github.com/DikaArdnt"><img title="DARK-02" src="https://img.shields.io/badge/Author-DikaArdnt-red.svg?style=for-the-badge&logo=github"></a>
+</p>
+<p align="center">
+</p>
+</div>
  <details>
  
 </details>
