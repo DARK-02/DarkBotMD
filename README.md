@@ -26,9 +26,9 @@ This Script is for everyone, not for Sale. Jika dijual neraka menunggumu brother
 
 ## UNTUK PENGGUNA WINDOWS/RDP
 
-Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
-Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
-Unduh & Instal FFmpeg [`Klik Disini`](https://ffmpeg.org/download.html) (Jangan Lupa Tambahkan FFmpeg ke variabel lingkungan PATH**)
+* Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
+* Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
+* Unduh & Instal FFmpeg [`Klik Disini`](https://ffmpeg.org/download.html) (**Jangan Lupa Tambahkan FFmpeg ke variabel lingkungan PATH**)
 
 
 ## FOR TERMUX/UBUNTU/SSH USER</div>
