@@ -535,7 +535,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
             case 'sc': {
-                m.reply('This bot Script : https://github.com/DARK-02/DarkBotMD\nBase : https://github.com/DikaArdnt/Hisoka-Morou\n\nAdded Dark Feature By Mr_Dark\n\n Dont Forget Give Star\n\nDonate : 6281615075793 (Link Aja)\nSaweria : https://saweria.co/DikaArdnt\nPaypal : https://www.paypal.me/Cakhaho\n\n Dont Forget Donate')
+                m.reply('This bot Script : https://github.com/DARK-02/DarkBotMD\n\nBase : https://github.com/DikaArdnt/Hisoka-Morou\n\nAdded Dark Feature By Mr_Dark\n\n Dont Forget Give Star\n\nDonate : 6281615075793 (Link Aja)\nSaweria : https://saweria.co/DikaArdnt\nPaypal : https://www.paypal.me/Cakhaho\n\n Dont Forget Donate')
             }
             break
             case 'chat': {
@@ -2618,11 +2618,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'list': case 'menu': case 'help': case '?': {
                 anu = `*Last Update:* _25/04/2022 00:43 PM_
                 
-══════════════════════
+════════════════════
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command_
 *Who's Updated?:* _MrDark_ & _Perwira_
-══════════════════════
-
+════════════════════
 
 *DarkScript Menu*
 •≽  ${prefix}phonenumber-info [nomor]

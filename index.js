@@ -147,7 +147,7 @@ async function startHisoka() {
                 }
 
                 if (anu.action == 'add') {
-                    hisoka.sendImageAsSticker(m.chat, fs.readFileSync('./masuklewattautan.webp'), '', { packname: "Sticker", author: "Mr.dark", categories: "ðŸ˜‚" })
+                    hisoka.sendImageAsSticker(anu.id, fs.readFileSync('./masuklewattautan.webp'), '', { packname: "Sticker", author: "Mr.dark", categories: "ðŸ˜‚" })
                 } else if (anu.action == 'remove') {
                     hisoka.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leaving To ${metadata.subject}` })
                 }
