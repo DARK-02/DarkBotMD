@@ -1982,7 +1982,7 @@ break
             if (!text) throw 'Masukkan Query Link!'
             m.reply(mess.wait)
             fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`).then(async linked => {
-            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.audio}`}, mimetype: 'audio/mp3', caption: 'Tiktok Audio Downloader'}, {quoted: m})
+            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.audio}`}, mimetype: 'audio/mpeg', caption: 'Tiktok Audio Downloader'}, {quoted: m})
             })
 	    }
             break
@@ -2588,7 +2588,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _25/04/2022 07:05 PM_
+                anu = `*Last Update:* _25/04/2022 09:54 PM_
                 
 ════════════════════
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader_
