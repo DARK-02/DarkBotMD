@@ -1962,59 +1962,29 @@ break
                 }
             }
             break
-	        case 'tiktok': case 'tiktoknowm': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson('https://api.akuari.my.id', '/downloader/tiktok?link='+text)
-                let buttons = [
-                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '► With Watermark'}, type: 1},
-                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.result.nowatermark },
-                    caption: `Download From ${text}`,
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 5
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
+            case 'tiktok': case 'tiktoknowm': {
+            if (!text) throw 'Masukkan Query Link!'
+            m.reply(mess.wait)
+            fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`).then(async linked => {
+            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.nowm}`}, mimetype: 'video/mp4', caption: 'Tiktok Downloader'}, {quoted: m})
+            })
             }
             break
             case 'tiktokwm': case 'tiktokwatermark': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
-                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.result.watermark },
-                    caption: `Download From ${text}`,
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 5
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
+            if (!text) throw 'Masukkan Query Link!'
+            m.reply(mess.wait)
+            fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`).then(async linked => {
+            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.video_original}`}, mimetype: 'video/mp4', caption: 'Tiktok Downloader'}, {quoted: m})
+            })
             }
             break
             case 'tiktokmp3': case 'tiktokaudio': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
-                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '► With Watermark'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `Download From ${text}`,
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 2
-                }
-                let msg = await hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio }, mimetype: 'audio/mpeg'}, { quoted: msg })
-            }
+            if (!text) throw 'Masukkan Query Link!'
+            m.reply(mess.wait)
+            fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`).then(async linked => {
+            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.audio}`}, mimetype: 'audio/mp3', caption: 'Tiktok Audio Downloader'}, {quoted: m})
+            })
+	    }
             break
 	        case 'instagram': case 'ig': case 'igdl': {
                 if (!text) throw 'No Query Url!'
@@ -2621,7 +2591,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 anu = `*Last Update:* _25/04/2022 07:05 PM_
                 
 ════════════════════
-*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3_
+*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader_
+*Status:* _https://dark-02.github.io/DarkBotStatus.html_
 *Who's Updated?:* _MrDark_ & _Perwira_
 ════════════════════
 
