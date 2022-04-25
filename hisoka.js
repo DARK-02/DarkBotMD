@@ -2467,14 +2467,14 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
             }
             break
             case 'texttomorse':{
-                 exec('python dark-text-morse.py '+text, (err, stdout) => {
+                 exec('python3 dark-text-morse.py '+text, (err, stdout) => {
                  if(err) return m.reply(err)
                  if (stdout) return m.reply(stdout)
                 })
              }
 	     break
              case 'simi':{
-                 exec('python dark-simi.py '+text, (err, stdout) => {
+                 exec('python3 dark-simi.py '+text, (err, stdout) => {
                  if(err) return m.reply(err)
                  if (stdout) return m.reply(stdout)
                  })
@@ -2503,12 +2503,12 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 	     break
 	    case 'call':{
 	     if(text.includes("@")) {
-                    exec("python call.py "+text.split("@62")[1], (err, stdout) => {
+                    exec("python3 call.py "+text.split("@62")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                     } else if(text.startsWith("8")) {
-                    	exec("python call.py "+text, (err, stdout) => {
+                    	exec("python3 call.py "+text, (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
@@ -2519,12 +2519,12 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 	    break
 	    case 'spamsms':{
 	     if(text.includes("@")) {
-                    exec("python mpl.py "+text.split("@62")[1], (err, stdout) => {
+                    exec("python3 mpl.py "+text.split("@62")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                     } else if(text.startsWith("8")) {
-                    	exec("python mpl.py "+text, (err, stdout) => {
+                    	exec("python3 mpl.py "+text, (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
@@ -2535,12 +2535,12 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 	    break
 	    case 'phonenumber-info':{
 	     if(text.includes("@")) {
-                    exec("python dark-phoneinfo.py "+text.split("@")[1], (err, stdout) => {
+                    exec("python3 dark-phoneinfo.py "+text.split("@")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
                     } else if(text.startsWith("+")) {
-                    	exec("python dark-phoneinfo.py "+text.split("+")[1], (err, stdout) => {
+                    	exec("python3 dark-phoneinfo.py "+text.split("+")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
@@ -2603,7 +2603,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             let exec = promisify(cp.exec).bind(cp)
           let o
           try {
-          o = await exec('python speed.py')
+          o = await exec('python3 speed.py')
           } catch (e) {
           o = e
          } finally {
@@ -2618,14 +2618,14 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _25/04/2022 00:43 PM_
+                anu = `*Last Update:* _25/04/2022 07:05 PM_
                 
 ════════════════════
-*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command_
+*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3_
 *Who's Updated?:* _MrDark_ & _Perwira_
 ════════════════════
 
-*DarkScript Menu*
+*« DarkScript Menu »*
 •≽  ${prefix}phonenumber-info [nomor]
 •≽  ${prefix}call [nomor]
 •≽  ${prefix}spamsms [nomor]
@@ -2635,7 +2635,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}simi [text]
 •≽  ${prefix}ExploitWebdav [website] [html]
 
-*Group Menu*
+*« Group Menu »*
 •≽  ${prefix}linkgroup
 •≽  ${prefix}ephemeral [option]
 •≽  ${prefix}setppgc [image]
@@ -2657,7 +2657,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}cekvote
 •≽  ${prefix}hapusvote
 
-*Downloader Menu*
+*« Downloader Menu »*
 •≽  ${prefix}tiktoknowm [url]
 •≽  ${prefix}tiktokwm [url]
 •≽  ${prefix}tiktokmp3 [url]
@@ -2674,7 +2674,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}joox [query]
 •≽  ${prefix}soundcloud [url]
 
-*Search Menu*
+*« Search Menu »*
 •≽  ${prefix}play [query]
 •≽  ${prefix}yts [query]
 •≽  ${prefix}google [query]
@@ -2686,7 +2686,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}ringtone [query]
 •≽  ${prefix}stalk [option] [query]
 
-*Random Menu*
+*« Random Menu »*
 •≽  ${prefix}coffe
 •≽  ${prefix}quotesanime
 •≽  ${prefix}motivasi
@@ -2701,7 +2701,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}neko
 •≽  ${prefix}shinobu
 
-*Text Pro Menu*
+*« Text Pro Menu »*
 •≽  ${prefix}3dchristmas
 •≽  ${prefix}3ddeepsea
 •≽  ${prefix}americanflag
@@ -2734,7 +2734,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}blackpink
 •≽  ${prefix}gluetext
 
-*Photo Oxy Menu*
+*« Photo Oxy Menu »*
 •≽  ${prefix}shadow
 •≽  ${prefix}romantic
 •≽  ${prefix}smoke
@@ -2748,7 +2748,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}harrypotter
 •≽  ${prefix}retrolol
 
-*Ephoto Menu*
+*« Ephoto Menu »*
 •≽  ${prefix}ffcover
 •≽  ${prefix}crossfire
 •≽  ${prefix}galaxy
@@ -2759,7 +2759,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}igcertificate
 •≽  ${prefix}ytcertificate
 
-*Fun Menu*
+*« Fun Menu »*
 •≽  ${prefix}halah
 •≽  ${prefix}hilih
 •≽  ${prefix}huluh
@@ -2774,7 +2774,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}math [mode]
 •≽  ${prefix}suitpvp [@tag]
 
-*Primbon Menu*
+*« Primbon Menu »*
 •≽  ${prefix}nomorhoki
 •≽  ${prefix}artimimpi
 •≽  ${prefix}artinama
@@ -2806,7 +2806,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}zodiak
 •≽  ${prefix}shio
 
-*Convert Menu*
+*« Convert Menu »*
 •≽  ${prefix}toimage
 •≽  ${prefix}removebg
 •≽  ${prefix}sticker
@@ -2821,7 +2821,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}dbinary
 •≽  ${prefix}styletext
 
-*Main Menu*
+*« Main Menu »*
 •≽  ${prefix}ping
 •≽  ${prefix}owner
 •≽  ${prefix}menu / ${prefix}help / ${prefix}?
@@ -2833,7 +2833,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}listonline
 •≽  ${prefix}speedtest
 
-*Database Menu*
+*« Database Menu »*
 •≽  ${prefix}setcmd
 •≽  ${prefix}listcmd
 •≽  ${prefix}delcmd
@@ -2843,22 +2843,21 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}getmsg
 •≽  ${prefix}delmsg
 
-*Anonymous Menu*
-
+*« Anonymous Menu »*
 •≽  ${prefix}anonymous
 •≽  ${prefix}start
 •≽  ${prefix}next
 •≽  ${prefix}keluar
 •≽  ${prefix}sendkontak
 
-*Islamic Menu*
+*« Islamic Menu »*
 •≽  ${prefix}iqra
 •≽  ${prefix}hadist
 •≽  ${prefix}alquran
 •≽  ${prefix}juzamma
 •≽  ${prefix}tafsirsurah
 
-*Voice Changer*
+*« Voice Changer »*
 •≽  ${prefix}bass
 •≽  ${prefix}blown
 •≽  ${prefix}deep
@@ -2871,7 +2870,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}slow
 •≽  ${prefix}tupai
 
-*Owner Menu*
+*« Owner Menu »*
 •≽  ${prefix}react [emoji]
 •≽  ${prefix}chat [option]
 •≽  ${prefix}join [link]
