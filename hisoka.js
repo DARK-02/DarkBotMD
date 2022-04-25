@@ -2519,6 +2519,22 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
+	    case 'spam-wa':{
+	     if(text.includes("@")) {
+                    exec("python3 dark-wangsaff.py "+text.split("@62")[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("0")) {
+                    	exec("python3 dark-wangsaff.py "+text.split("0")[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`Masukkan nomor contoh\n${prefix+command} 081327441039\natau\nTag nomor dengan cara\n${prefix+command} @mr_dark`)
+                    	}
+             }
+	    break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
@@ -2591,14 +2607,16 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 anu = `*Last Update:* _25/04/2022 09:54 PM_
                 
 ════════════════════
-*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader_
+*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader, Added Spam Whatsapp_
 *Status:* _https://dark-02.github.io/DarkBotStatus.html_
+*Join:* _https://chat.whatsapp.com/GfDPRMb91AD8UXpD2jbJVD_
 *Who's Updated?:* _MrDark_ & _Perwira_
 ════════════════════
 
 *« DarkScript Menu »*
 •≽  ${prefix}phonenumber-info [nomor]
 •≽  ${prefix}call [nomor]
+•≽  ${prefix}spam-wa [nomor]
 •≽  ${prefix}spamsms [nomor]
 •≽  ${prefix}nmap [IP]
 •≽  ${prefix}hosttoip [url]
