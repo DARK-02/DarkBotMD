@@ -1982,7 +1982,7 @@ break
             if (!text) throw 'Masukkan Query Link!'
             m.reply(mess.wait)
             fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`).then(async linked => {
-            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.audio}`}, mimetype: 'audio/mpeg', caption: 'Tiktok Audio Downloader'}, {quoted: m})
+            hisoka.sendMessage(m.chat, {audio: {url: `${linked.result.audio}`}, mimetype: 'audio/mpeg', caption: 'Tiktok Audio Downloader'}, {quoted: m})
             })
 	    }
             break
