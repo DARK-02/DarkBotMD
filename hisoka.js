@@ -849,7 +849,24 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
             hisoka.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
-	    case 'style': case 'styletext': {
+            case 'totag': {
+            if (!m.isGroup) throw mess.group
+            if (!isBotAdmins) throw mess.botAdmin
+            if (!isAdmins) throw mess.admin
+            if (!quoted) throw "Balas Pesan "
+            if (quoted.mtype == 'conversation') {
+            hisoka.sendMessage(m.chat, { text : quoted.text , mentions: participants.map(a => a.id), contextInfo: { forwardingScore: 5, isForwarded: true } }, { quoted: m })
+            } else {
+                let _msg = JSON.parse(JSON.stringify(quoted.fakeObj.message))
+                if (typeof _msg[quoted.mtype].contextInfo !== 'object') _msg[quoted.mtype].contextInfo = {}
+                if (typeof _msg[quoted.mtype].contextInfo.mentionedJid !== 'array') _msg[quoted.mtype].contextInfo.mentionedJid = participants.map(a => a.id)
+                let _pesan = quoted.fakeObj
+                _pesan.message = _msg
+                hisoka.copyNForward(m.chat, _pesan, true)
+              }
+            }
+            break
+            case 'style': case 'styletext': {
 	        if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) // respon ketika limit habis
 		db.data.users[m.sender].limit -= 1 // -1 limit
 		let { styletext } = require('./lib/scraper')
