@@ -2554,11 +2554,11 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 	    break
        case 'attp':
        try {
-              if (args.length == 0) return reply(`Example: ${prefix + command} kurr`)
+              if (args.length == 0) return m.reply(`Example: ${prefix + command} kurr`)
               buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
-              conn.sendMessage(from, buffer, sticker, { quoted: mek })
+              hisoka.sendMessage(from, buffer, sticker, { quoted: mek })
               } catch(e) {
-              	reply(e)
+              	m.reply(e)
               }
               break
             case 'ping': case 'botstatus': case 'statusbot': {
