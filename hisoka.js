@@ -2552,6 +2552,15 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
+       case 'attp':
+       try {
+              if (args.length == 0) return reply(`Example: ${prefix + command} kurr`)
+              buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
+              conn.sendMessage(from, buffer, sticker, { quoted: mek })
+              } catch(e) {
+              	reply(e)
+              }
+              break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
@@ -2621,7 +2630,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _25/04/2022 09:54 PM_
+                anu = `*Last Update:* _29/04/2022 19:36 PM_
                 
 ════════════════════
 *What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader, Added Spam Whatsapp_
@@ -2631,6 +2640,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 ════════════════════
 
 *« DarkScript Menu »*
+•≽  ${prefix}attp [text]
 •≽  ${prefix}phonenumber-info [nomor]
 •≽  ${prefix}call [nomor]
 •≽  ${prefix}spam-wa [nomor]
