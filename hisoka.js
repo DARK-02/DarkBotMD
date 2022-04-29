@@ -6,6 +6,7 @@ require('./config')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
 const fs = require('fs')
 const util = require('util')
+const from = mek.key.remoteJid
 const chalk = require('chalk')
 const { exec, spawn, execSync } = require("child_process")
 const axios = require('axios')
