@@ -2553,15 +2553,12 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
-       case 'attp':
-       try {
-              if (args.length == 0) return m.reply(`Example: ${prefix + command} kurr`)
-              buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
-              hisoka.sendMessage(from, buffer, sticker, { quoted: mek })
-              } catch(e) {
-              	m.reply(e)
-              }
-              break
+            case 'attp':{
+               if (args.length == 0) return m.reply(`Example: ${prefix + command} Kiw Gay`)
+               exec("curl 'https://api.xteam.xyz/attp?file&text="+text+"' -o attp.webp")
+               hisoka.sendImageAsSticker(m.chat, fs.readFileSync('./attp.webp'), '', { packname: "Sticker", author: "Mr.dark", categories: "yoi" })
+            }
+            break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
@@ -2631,10 +2628,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _29/04/2022 19:36 PM_
+                anu = `*Last Update:* _01/05/2022 14:56 PM_
                 
 ════════════════════
-*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader, Added Spam Whatsapp_
+*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader, Added Spam Whatsapp, Added Attp_
 *Status:* _https://dark-02.github.io/DarkBotStatus.html_
 *Join:* _https://chat.whatsapp.com/GfDPRMb91AD8UXpD2jbJVD_
 *Who's Updated?:* _MrDark_ & _Perwira_
