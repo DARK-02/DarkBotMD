@@ -2553,8 +2553,59 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
+            case 'test':{
+                  p = exec("dir");
+                  console.log(p)
+            }
+            break
+	    case 'tr': case 'translate':{
+                    if (!m.quoted) throw `Example: *${prefix + command} id [reply message]*`
+                    exec("python3 tra.py "+text+" "+m.message.extendedTextMessage.contextInfo.quotedMessage.conversation, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+             }
+	    break
             case 'attp':{
-                 hisoka.sendMessage(m.chat, {sticker: {url: "https://api.xteam.xyz/attp?file&text="+text}})
+                 if (!text) throw `Example: *${prefix + command} Perdi Gay*`
+                 m.reply(mess.wait)
+                 hisoka.sendMessage(m.chat, {sticker: {url: "https://api.xteam.xyz/attp?file&text="+text}}, {quoted: m})
+            }
+            break
+            case 'ttp':{
+                 if (!text) throw `Example: *${prefix + command} Perdi Gay*`
+                 m.reply(mess.wait)
+                 hisoka.sendMessage(m.chat, {image: {url: "https://api.akuari.my.id/other/ttp?text="+text}, caption: 'ini adalah text to png, reply message dengan command .s untuk menjadikan sticker!'}, {quoted: m})
+            }
+            break
+            case 'texttosound': case 'tts':{
+                 if (!text) throw `Example: *${prefix + command} Perdi Gay*`
+                 m.reply(mess.wait)
+                 exec("python3 texttosound.py "+text)
+                 audio = "p.mp3"
+                 hisoka.sendMessage(m.chat, {audio: {url: audio}}, {quoted: m})
+            }
+            break
+            case 'CaptchaGenerator':{
+                 if (!text) throw `Example: *${prefix + command} Perdi Gay*`
+                 m.reply(mess.wait)
+                 exec("pip install captcha && python3 captcha.py "+text)
+                 hisoka.sendMessage(m.chat, {image: {url: "CAPTCHA.png"}, caption: 'Captcha Generator Text Success'})
+            }
+            break
+            case 'webinfo':{
+                 if (!text) throw `Example: *${prefix + command} google.com*`
+                 m.reply(mess.wait)
+                 exec("python3 webinfo.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                 })
+            }
+            break
+            case 'SsWeb': case 'ssweb': case 'Ssweb': case 'ScreenshotWeb': case 'screenshotweb':{
+                 if (!text) throw `Example: *${prefix + command} https://github.com/DARK-02*`
+                 m.reply(mess.wait)
+                 hisoka.sendMessage(m.chat, {image: {url: "https://api.akuari.my.id/other/ssweb?link="+text}})
             }
             break
             case 'ping': case 'botstatus': case 'statusbot': {
@@ -2626,25 +2677,31 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-                anu = `*Last Update:* _01/05/2022 20:11 PM_
+                anu = `*Last Update:* _09/05/2022 18:24 PM_
                 
 ════════════════════
-*What the updated:* _Bug Patch, Fix Api, Fix Simi Command, Added SpamSms Command, New Menu Style, added phonenumber info command, Fix python3, Fix tiktok downloader, Added Spam Whatsapp, Added Attp_
+*What the updated:* _Added ttp command, added Screenshotweb command, added translate command, added webinfo command, added captcha generator, added text to sound command, update apikey_
 *Status:* _https://dark-02.github.io/DarkBotStatus.html_
 *Join:* _https://chat.whatsapp.com/GfDPRMb91AD8UXpD2jbJVD_
-*Who's Updated?:* _MrDark_ & _Perwira_
+*Who's Updated?:* _MrDark_
 ════════════════════
 
 *« DarkScript Menu »*
 •≽  ${prefix}attp [text]
+•≽  ${prefix}ttp [text]
+•≽  ${prefix}tts [text]
+•≽  ${prefix}simi [text]
+•≽  ${prefix}texttomorse [text]
+•≽  ${prefix}CaptchaGenerator [text]
+•≽  ${prefix}translate [kode negara] [reply]
 •≽  ${prefix}phonenumber-info [nomor]
 •≽  ${prefix}call [nomor]
 •≽  ${prefix}spam-wa [nomor]
 •≽  ${prefix}spamsms [nomor]
 •≽  ${prefix}nmap [IP]
 •≽  ${prefix}hosttoip [url]
-•≽  ${prefix}texttomorse [text]
-•≽  ${prefix}simi [text]
+•≽  ${prefix}Screenshotweb [url]
+•≽  ${prefix}webinfo [url]
 •≽  ${prefix}ExploitWebdav [website] [html]
 
 *« Group Menu »*
@@ -2955,6 +3012,13 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 if (budy.startsWith('$')) {
                     if (!isCreator) return m.reply(mess.owner)
                     exec(budy.slice(2), (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                }
+                if (budy.startsWith('pyexc:')) {
+                    if (!isCreator) return m.reply(mess.owner)
+                    exec("python -c '"+budy.slice(7)+"'", (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
