@@ -434,11 +434,15 @@ Selama ${clockString(new Date - user.afkTime)}
         }
 	    
         switch(command) {
-	    case 'afk': {
+	    case 'afkasliges': {
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
                 m.reply(`${m.pushName} Telah Afk${text ? ': ' + text : ''}`)
+            }
+            break	
+	    case 'afk': {
+                m.reply("fitur afk telah di hapus dari bot ini!")
             }
             break	
         case 'ttc': case 'ttt': case 'tictactoe': {
@@ -534,11 +538,11 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
 	    case 'donasi': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
-                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74fd634010128be37972c.jpg' }, caption: `*Hai Kak ${m.pushName}*\n\n Bot Rental Prices\n⭔ 13k Per Group via E-Walet 1 Month\n⭔ 18k via pulsa 1 Month\n\n Premium Price Bot\n⭔ 8k per User 1 bulan\n\nPayment can be via Paypal/link aja/pulsa\n\nFor more details, you can chat with the owner\nhttps://wa.me/6288292024190 (Owner)\n\nDonate For Me : \n\n⭔ Paypal : https://www.paypal.me/Cakhaho\n⭔ Saweria : https://saweria.co/DikaArdnt` }, { quoted: m })
+                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74fd634010128be37972c.jpg' }, caption: `*Hai Kak ${m.pushName}*\n\n Bot Rental Prices\n⭔ 13k Per Group via E-Walet 1 Month\n⭔ 18k via pulsa 1 Month\n\n Premium Price Bot\n⭔ 8k per User 1 bulan\n\nPayment can be via Paypal/link aja/pulsa\n\nFor more details, you can chat with the owner\nhttps://wa.me/6281327441039 (Owner)\n\n⭔` }, { quoted: m })
             }
             break
             case 'sc': {
-                m.reply('This bot Script : https://github.com/DARK-02/DarkBotMD\n\nBase : https://github.com/DikaArdnt/Hisoka-Morou\n\nAdded Dark Feature By Mr_Dark\n\n Dont Forget Give Star\n\nDonate : 6281615075793 (Link Aja)\nSaweria : https://saweria.co/DikaArdnt\nPaypal : https://www.paypal.me/Cakhaho\n\n Dont Forget Donate')
+                m.reply('This bot Script : https://github.com/DARK-02/DarkBotMD\n\nBase : https://github.com/DikaArdnt/Hisoka-Morou\n\nAdded Dark Feature By Mr_Dark\n\n Dont Forget Give Star')
             }
             break
             case 'chat': {
@@ -2553,6 +2557,17 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
+	    case 'instaliker':{
+	     if(text.startsWith("https")) {
+                    exec("python3 qlizzlike.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`Example: ${prefix+command} https://www.instagram.com/p/CReJg0krsVx/`)
+                    	}
+             }
+	    break
             case 'test':{
                   p = exec("dir");
                   console.log(p)
@@ -2570,12 +2585,18 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                  if (!text) throw `Example: *${prefix + command} Perdi Gay*`
                  m.reply(mess.wait)
                  hisoka.sendMessage(m.chat, {sticker: {url: "https://api.xteam.xyz/attp?file&text="+text}}, {quoted: m})
-            }
-            break
+          }
+          break
             case 'ttp':{
                  if (!text) throw `Example: *${prefix + command} Perdi Gay*`
                  m.reply(mess.wait)
                  hisoka.sendMessage(m.chat, {image: {url: "https://api.akuari.my.id/other/ttp?text="+text}, caption: 'ini adalah text to png, reply message dengan command .s untuk menjadikan sticker!'}, {quoted: m})
+            }
+            break
+            case 'coingecko':{
+                 if (!text) throw `Example: *${prefix + command} bitcoin*`
+                 m.reply(mess.wait)
+                 hisoka.sendMessage(m.chat, {image: {url: "https://shot.screenshotapi.net/screenshot?&url=https%3A%2F%2Fwww.coingecko.com%2Fen%2Fcoins%2F"+text+"%2Fidr&width=1240&height=900&output=image&file_type=png&wait_for_event=load"}, caption: 'Live MarketCap'}, {quoted: m})
             }
             break
             case 'texttosound': case 'tts':{
@@ -2602,10 +2623,41 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                  })
             }
             break
+            case 'instafollower':{
+                 if (!text) throw `Example: *${prefix + command} official_of_mrdark*`
+                 m.reply(mess.wait)
+                 exec("python3 qlizz.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                 })
+            }
+            break
             case 'SsWeb': case 'ssweb': case 'Ssweb': case 'ScreenshotWeb': case 'screenshotweb':{
                  if (!text) throw `Example: *${prefix + command} https://github.com/DARK-02*`
                  m.reply(mess.wait)
-                 hisoka.sendMessage(m.chat, {image: {url: "https://api.akuari.my.id/other/ssweb?link="+text}})
+                 axios.get('https://api.pikwy.com/', {
+                                               params: {
+                                                  'tkn': '125',
+                                                  'd': '3000',
+                                                   'u': text,
+                                                   'fs': '0',
+                                                   'w': '1280',
+                                                   'h': '1200',
+                                                   's': '100',
+                                                   'z': '100',
+                                                   'f': 'jpg',
+                                                   'rt': 'jweb'
+                                                }
+                 }).then(({data}) => { return hisoka.sendMessage(m.chat, {image: {url: data.iurl}, caption: 'Screenshot web, copyright by MR_DARK 2022'}) })
+            }
+            break
+            case 'igstalk':{
+                 if (!text) throw `Example: *${prefix + command} official_of_mrdark*`
+                 m.reply(mess.wait)
+                 exec("python3 igstalk.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                 })
             }
             break
             case 'ping': case 'botstatus': case 'statusbot': {
@@ -2680,7 +2732,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 anu = `*Last Update:* _09/05/2022 18:24 PM_
                 
 ════════════════════
-*What the updated:* _Added ttp command, added Screenshotweb command, added translate command, added webinfo command, added captcha generator, added text to sound command, update apikey_
+*What the updated:* _Added ttp command, added Screenshotweb command, added translate command, added webinfo command, added captcha generator, added text to sound command, update apikey, added copy web code command, added free instagram follower command, added instagram stalker_
 *Status:* _https://dark-02.github.io/DarkBotStatus.html_
 *Join:* _https://chat.whatsapp.com/GfDPRMb91AD8UXpD2jbJVD_
 *Who's Updated?:* _MrDark_
@@ -2701,8 +2753,15 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 •≽  ${prefix}nmap [IP]
 •≽  ${prefix}hosttoip [url]
 •≽  ${prefix}Screenshotweb [url]
+•≽  ${prefix}copywebcode [url]
 •≽  ${prefix}webinfo [url]
 •≽  ${prefix}ExploitWebdav [website] [html]
+•≽  ${prefix}coingecko [crypto coin]
+
+*« Instagram Tools »*
+•≽  ${prefix}instafollower [instagram name]
+•≽  ${prefix}igstalk [instagram name]
+•≽  ${prefix}instaliker [link ig post]
 
 *« Group Menu »*
 •≽  ${prefix}linkgroup
@@ -3001,6 +3060,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 if (budy.startsWith('>')) {
                     if (!isCreator) return m.reply(mess.owner)
                     try {
+                        dark = hisoka
                         let evaled = await eval(budy.slice(2))
                         if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
                         await m.reply(evaled)
@@ -3019,6 +3079,13 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 if (budy.startsWith('pyexc:')) {
                     if (!isCreator) return m.reply(mess.owner)
                     exec("python -c '"+budy.slice(7)+"'", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                }
+                if (budy.startsWith('save:')) {
+                    if (!isCreator) return m.reply(mess.owner)
+                    exec("python3 ftp.py "+budy.slice(6), (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
