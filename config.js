@@ -14,16 +14,18 @@ global.APIs = {
 
 // Apikey Website Api
 global.APIKeys = {
-	'https://zenzapis.xyz': 'BF39D349845E',
+	'https://zenzapis.xyz': '177c10ab45',
 }
 
 // Other
-global.owner = ['6281327441039']
+global.owner = ['6281327441039', '6282230819722']
+global.bsu = ['6281327441039']
 global.premium = ['6281327441039']
-global.packname = 'Hisoka Morrow'
+global.pembeli = ['6281327441039', '6283111532238']
+global.packname = 'DarkBotMD'
 global.author = 'Mr_Dark'
 global.sessionName = 'session'
-global.prefa = ['/','!','.','#',',','_']
+global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
     success: '✓ Success',
@@ -34,11 +36,12 @@ global.mess = {
     private: 'Fitur Digunakan Hanya Untuk Private Chat!',
     bot: 'Fitur Khusus Pengguna Nomor Bot',
     wait: 'Loading...',
-    endLimit: 'Limit Harian Anda Telah Habis, Limit Akan Direset Setiap Jam 12',
+    pembeli: "*Fitur premium user only *⚠️\nbeli premium dengan harga *15k* via pulsa, atau *11k* via ovo\ncontact: 081327441039 ✅",
+    endLimit: 'Limit Harian Anda Telah Habis, Limit Akan Direset Setiap Jam 12, atau beli premium dengan harga *15k* via pulsa, atau *11k* via ovo',
 }
 global.limitawal = {
     premium: "Infinity",
-    free: 100
+    free: 1
 }
 global.thumb = fs.readFileSync('./lib/logo.jpg')
 

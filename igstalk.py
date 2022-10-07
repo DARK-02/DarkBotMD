@@ -1,12 +1,12 @@
-import instaloader as perdigay
+import instaloader as drekkemren
 import shlex
 import sys
 import requests
 import os
 import time
 mr_dark = " ".join(map(shlex.quote, sys.argv[1:]))
-kontol = perdigay.Instaloader()
-profile = perdigay.Profile.from_username(kontol.context, mr_dark)
+darkcoyy = drekkemren.Instaloader()
+profile = drekkemren.Profile.from_username(darkcoyy.context, mr_dark)
 params = {
     'tkn': '125',
     'd': '3000',

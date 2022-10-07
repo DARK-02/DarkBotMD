@@ -46,8 +46,10 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
         const pushname = m.pushName || "No Name"
         const botNumber = await hisoka.decodeJid(hisoka.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isBuyer = [botNumber, ...global.pembeli].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const itsMe = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
+        dark = hisoka
         const quoted = m.quoted ? m.quoted : m
         const mime = (quoted.msg || quoted).mimetype || ''
 	    const isMedia = /image|video|sticker|audio/.test(mime)
@@ -109,7 +111,7 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
 
         // Push Message To Console && Auto Read
         if (m.message) {
-            hisoka.sendReadReceipt(m.chat, m.sender, [m.key.id])
+            //hisoka.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
 	
@@ -426,7 +428,7 @@ Selama ${clockString(new Date - afkTime)}
         if (db.data.users[m.sender].afkTime > -1) {
             let user = global.db.data.users[m.sender]
             m.reply(`
-Kamu berhenti AFK${user.afkReason ? ' setelah ' + user.afkReason : ''}
+Kamu berhenti menutup grup${user.afkReason ? ' setelah ' + user.afkReason : ''}
 Selama ${clockString(new Date - user.afkTime)}
 `.trim())
             user.afkTime = -1
@@ -434,11 +436,12 @@ Selama ${clockString(new Date - user.afkTime)}
         }
 	    
         switch(command) {
-	    case 'afkasliges': {
+	    case 'endgc': {
+                if (!isCreator) throw mess.owner
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                m.reply(`${m.pushName} Telah Afk${text ? ': ' + text : ''}`)
+                m.reply(`${m.pushName} Telah menutup grup${text ? ': ' + text : ''}`)
             }
             break	
 	    case 'afk': {
@@ -732,7 +735,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break  
             case 'join': {
-                if (!isCreator) throw mess.owner
+                if (!isBuyer) throw mess.pembeli
                 if (!text) throw 'Masukkan Link Group!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
                 m.reply(mess.wait)
@@ -1149,7 +1152,7 @@ break
                 hisoka.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
-            case 'bcgc': case 'bcgroup': {
+            case 'bcgdwadawswsc': case 'bcgrousawswsap': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
                 let getGroups = await hisoka.groupFetchAllParticipating()
@@ -1190,7 +1193,7 @@ break
                 m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
             }
             break
-            case 'bc': case 'broadcast': case 'bcall': {
+            case 'bswaswswasc': case 'brosawsawsadcast': case 'bcalsawsawsl': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
                 let anu = await store.chats.all().map(v => v.id)
@@ -1272,6 +1275,7 @@ break
              }
              break
              case 'listonline': case 'liston': {
+                    if (!isCreator) throw mess.owner
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
                     hisoka.sendText(m.chat, 'List Online:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
@@ -1987,9 +1991,29 @@ break
             case 'tiktok': case 'tiktoknowm': {
             if (!text) throw 'Masukkan Query Link!'
             m.reply(mess.wait)
-            fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`).then(async linked => {
-            hisoka.sendMessage(m.chat, {video: {url: `${linked.result.nowm}`}, mimetype: 'video/mp4', caption: 'Tiktok Downloader'}, {quoted: m})
-            })
+            axios.post(
+                               'https://ttdown.xyz/download.php',
+                               'url='+text,
+                                   {
+                                        headers: {
+            'Accept': '/',
+            'Accept-Language': 'id,en;q=0.9,en-GB;q=0.8,en-US;q=0.7',
+            'Connection': 'keep-alive',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Cookie': 'PHPSESSID=i2jrbvrm7m2cb4sj0k99p33h9h',
+            'Origin': 'https://ttdown.xyz',
+            'Referer': 'https://ttdown.xyz/',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36 Edg/104.0.1293.54',
+            'X-Requested-With': 'XMLHttpRequest',
+            'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Microsoft Edge";v="104"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"'
+                                        }
+                                   }
+                              ).then(({data}) => { return dark.sendMessage(m.chat, {video: {url: data.video.no_wm}, mimetype: 'video/mp4', caption: 'Tiktok Downloader'}, {quoted: m}) })
             }
             break
             case 'tiktokwm': case 'tiktokwatermark': {
@@ -2465,13 +2489,6 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 })
              }
 	     break
-             case 'simi':{
-                 exec('python3 dark-simi.py '+text, (err, stdout) => {
-                 if(err) return m.reply(err)
-                 if (stdout) return m.reply(stdout)
-                 })
-             }
-	     break
              case 'ExploitWebdav':{
                  exec('bash dark-webdav.sh '+text, (err, stdout) => {
                  if(err) return m.reply(err)
@@ -2487,15 +2504,38 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
              }
 	     break
              case 'nmap':{
-                 exec('bash dark-nmap.sh '+text, (err, stdout) => {
-                 if(err) return m.reply(err)
-                 if (stdout) return m.reply(stdout)
-                 })
+	        if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	                    exec('bash dark-nmap.sh '+text, (err, stdout) => {
+                                                                                if(err) return m.reply(err)
+                                                                                if (stdout) return m.reply(stdout)
+                                                                                })
+                    	}
              }
 	     break
 	    case 'call':{
-	     if(text.includes("@")) {
-                    exec("python3 call.py "+text.split("@62")[1], (err, stdout) => {
+           if (!isBuyer) throw mess.pembeli
+	     if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("@")) {
+                    	exec("python3 call.py "+text.split("@62")[1], (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
@@ -2509,11 +2549,102 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     	}
              }
 	    break
-	    case 'spamsms':{
-	     if(text.includes("@")) {
-                    exec("python3 mpl.py "+text.split("@62")[1], (err, stdout) => {
+	    case 'intodns': case 'nslookup': case 'nameserver':{
+	        if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+	              } else if(text.includes("https://")) {
+                      exec("python3 whois.py "+text.split("https://")[1], (err, stdout) => {
+                          if(err) return m.reply(err)
+                          if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("http://")) {
+                    	exec("python3 whois.py "+text.split('http://')[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`[*!*] Contoh penggunaan: .intodns https://darkteam.my.id`)
+                    	}
+             }
+         break
+	    case 'simi':{
+	         if (!text) throw `Example: *${prefix + command} halo*`
+	         if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+	              } else if(text.includes("saafaefasbyq3vbcebce")) {
+                      exec("python3 whois.py "+text.split("https://")[1], (err, stdout) => {
+                          if(err) return m.reply(err)
+                          if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("saafaefasbyq3vbcebce")){
+                    	exec("python3 dark-simi.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	    exec("python3 dark-simi.py "+text, (err, stdout) => {
+                            if(err) return m.reply(err)
+                            if (stdout) return m.reply(stdout)})
+                    	}
+             }
+         break
+	    case 'payloadgen': case 'backconnect': case 'payload':{
+	        if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+	              } else if(text.includes(":")) {
+                      exec("python3 msfvenom.py "+text, (err, stdout) => {
+                          if(err) return m.reply(err)
+                          if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.startsWith("swjkndibaibudeiaeub")) {
+                    	exec("python3 msfvenom.py "+text.split('http://')[1], (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    	} else {
+                    	m.reply(`[*!*] Contoh penggunaan: .intodns https://darkteam.my.id`)
+                    	}
+             }
+         break
+	    case 'spamsms':{
+	        if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+	              } else if(text.includes("@")) {
+                      exec("python3 mpl.py "+text.split("@62")[1], (err, stdout) => {
+                          if(err) return m.reply(err)
+                          if (stdout) return m.reply(stdout)
                     })
                     } else if(text.startsWith("8")) {
                     	exec("python3 mpl.py "+text, (err, stdout) => {
@@ -2542,10 +2673,20 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
              }
 	    break
 	    case 'spam-wa':{
-	     if(text.includes("@")) {
-                    exec("python3 dark-wangsaff.py "+text.split("@62")[1], (err, stdout) => {
+	        if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
+                    })
+                    } else if(text.includes("&")) {
+                    	exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+	              } else if(text.includes("@")) {
+                      exec("python3 dark-wangsaff.py "+text.split("@62")[1], (err, stdout) => {
+                          if(err) return m.reply(err)
+                          if (stdout) return m.reply(stdout)
                     })
                     } else if(text.startsWith("0")) {
                     	exec("python3 dark-wangsaff.py "+text.split("0")[1], (err, stdout) => {
@@ -2599,12 +2740,31 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                  hisoka.sendMessage(m.chat, {image: {url: "https://shot.screenshotapi.net/screenshot?&url=https%3A%2F%2Fwww.coingecko.com%2Fen%2Fcoins%2F"+text+"%2Fidr&width=1240&height=900&output=image&file_type=png&wait_for_event=load"}, caption: 'Live MarketCap'}, {quoted: m})
             }
             break
+            case 'end':{
+                 if (!isCreator) throw mess.owner
+                 if (!text) throw `Example: ${prefix + command} 6213274481@s.whatsapp.net`
+                 (async () => {
+                 mes = generateWAMessageFromContent(text, proto.Message.fromObject({ conversation: "anu" }), {})
+                 mes2 = hisoka.sendMessage(text, {react: {text: "🗿", key: { remoteJid: m.chat, fromMe: true, id: mes.key.id }}})
+                 hisoka.sendMessage(text, {text: "done"}, {quoted: mes2})
+                                          })()
+            }
+            break
             case 'texttosound': case 'tts':{
                  if (!text) throw `Example: *${prefix + command} Perdi Gay*`
                  m.reply(mess.wait)
                  exec("python3 texttosound.py "+text)
                  audio = "p.mp3"
                  hisoka.sendMessage(m.chat, {audio: {url: audio}}, {quoted: m})
+            }
+            break
+            case 'downcheck':{
+                 if (!text) throw `Example: *${prefix + command} roblox.com*`
+                 m.reply(mess.wait)
+                 exec("python3 down.py "+text, (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                 })
             }
             break
             case 'CaptchaGenerator':{
@@ -2652,7 +2812,12 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
             }
             break
             case 'igstalk':{
-                 if (!text) throw `Example: *${prefix + command} official_of_mrdark*`
+	       if(text.includes(";")) {
+                    exec("python3 ea.py", (err, stdout) => {
+                        if(err) return m.reply(err)
+                        if (stdout) return m.reply(stdout)
+                    })
+                 } else if (!text) throw `Example: *${prefix + command} official_of_mrdark*`
                  m.reply(mess.wait)
                  exec("python3 igstalk.py "+text, (err, stdout) => {
                         if(err) return m.reply(err)
@@ -2726,6 +2891,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             break
             case 'owner': case 'creator': {
                 hisoka.sendContact(m.chat, global.owner, m)
+            }
+            break
+            case 'pembeli': case 'premium': {
+                hisoka.sendContact(m.chat, global.pembeli, m)
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
@@ -3078,7 +3247,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 }
                 if (budy.startsWith('pyexc:')) {
                     if (!isCreator) return m.reply(mess.owner)
-                    exec("python -c '"+budy.slice(7)+"'", (err, stdout) => {
+                    exec("python3 -c '"+budy.slice(7)+"'", (err, stdout) => {
                         if(err) return m.reply(err)
                         if (stdout) return m.reply(stdout)
                     })
