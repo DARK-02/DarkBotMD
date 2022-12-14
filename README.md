@@ -5,8 +5,7 @@
  
 </details>
  
-Script WhatsApp Bot Multi Device,
-Base By DikaArdnt
+Script WhatsApp Bot Multi Device
 
 ## NOTE
 This Script is for everyone, not for Sale. Jika dijual neraka menunggumu brother !
